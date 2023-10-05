@@ -8,12 +8,6 @@ The name lookup files can be downloaded through [this Census Bureau web interfac
 
 I combine these files, add block population, and subset Milwaukee County in order to create `MilwaukeeCounty_Block_VTD_2010.csv` and `MilwaukeeCounty_Block_VTD_2020.csv`. See `SubsetMilwaukee.R` for code.
 
-# block relationships
-
-The file `tab2010_tab2020_st55_wi.txt` contains the official relationships (i.e. degree of overlap) between 2010 and 2020 census blocks. The file was downloaded from [this Census Bureau web page](https://www.census.gov/geographies/reference-files/time-series/geo/relationship-files.2020.html#list-tab-1709067297).
-
-I add block population and subset Milwaukee County in order to create `MilwaukeeCounty_BlockRelationship_2010to2020.csv.csv`. See `SubsetMilwaukee.R` for code.
-
 # ward-shp
 
 The `ward-shp` subdirectory includes Milwaukee County ward boundaries for 2002, 2011, and 2022. These boundaries originated with the Wisconsin Technology Services Bureau (LTSB). I retrieved their archived files from the GeoData[@]Wisconsin archive, subset Milwaukee county, and converted to a standard coordinate reference system (4326) and file format (GeoJSON).
@@ -31,3 +25,7 @@ The `crosswalks` subdirectory includes files linking each vintage of blocks to w
 * `Blocks2000_with_Ward2002.csv` includes the 2002 ward assignment for each block used in the 2020 census. It is constructed by intersecting the blocks with 2002 ward polygons. See `Build2000Crosswalk.R`.
 * `Blocks2010_with_Ward2002_and_Ward2011.csv` includes the 2002 ward assignment *and* the 2011 ward assignment for each block used in the 2010 census. The 2002 ward assignments are taken from the "voting tabulation district (VTD)" field in the 2010 census. The names and numbers of wards from this VTD field match the names and numbers of wards from the 2002 LTSB shapefile. The 2011 ward assignments are constructed by intersecting the blocks with 2011 ward polygons. See `Build2010Crosswalk.R` for details.
 * `Blocks2020_with_Ward2022_and_Ward2011.csv` includes the 2022 ward assignment *and* the 2011 ward assignment for each block used in the 2020 census. It was constructed in the same manner as the 2010 crosswalk. See `Build2020Crosswalk.R` for details.
+
+# ward-demographics
+
+The `ward-demographics` subdirectory includes files containing the Voting Age Population (VAP) demographic statistics for each vintage of wards during the decade in which they were used. I linearly interpolate values for intercensal election years. See `AggregateWardDemographics.R` for details.
