@@ -1,0 +1,1923 @@
+STATEFP|COUNTYFP|COUSUBFP|NAME|NAMELSAD
+55|001|00275|Adams|Adams city
+55|001|00300|Adams|Adams town
+55|001|07300|Big Flats|Big Flats town
+55|001|16075|Colburn|Colburn town
+55|001|19575|Dell Prairie|Dell Prairie town
+55|001|22000|Easton|Easton town
+55|001|27950|Friendship|Friendship village
+55|001|37625|Jackson|Jackson town
+55|001|43425|Leola|Leola town
+55|001|44250|Lincoln|Lincoln town
+55|001|53725|Monroe|Monroe town
+55|001|56525|New Chester|New Chester town
+55|001|56750|New Haven|New Haven town
+55|001|65450|Preston|Preston town
+55|001|65825|Quincy|Quincy town
+55|001|67425|Richfield|Richfield town
+55|001|69275|Rome|Rome town
+55|001|76350|Springville|Springville town
+55|001|77800|Strongs Prairie|Strongs Prairie town
+55|001|88150|Wisconsin Dells|Wisconsin Dells city
+55|003|00000|County subdivisions not defined|County subdivisions not defined
+55|003|00550|Agenda|Agenda town
+55|003|03225|Ashland|Ashland city
+55|003|03250|Ashland|Ashland town
+55|003|11525|Butternut|Butternut village
+55|003|14550|Chippewa|Chippewa town
+55|003|29250|Gingles|Gingles town
+55|003|29875|Gordon|Gordon town
+55|003|37775|Jacobs|Jacobs town
+55|003|42562|La Pointe|La Pointe town
+55|003|49200|Marengo|Marengo town
+55|003|50700|Mellen|Mellen city
+55|003|54400|Morse|Morse town
+55|003|61600|Peeksville|Peeksville town
+55|003|71350|Sanborn|Sanborn town
+55|003|72825|Shanagolden|Shanagolden town
+55|003|86850|White River|White River town
+55|005|01325|Almena|Almena village
+55|005|01350|Almena|Almena town
+55|005|02775|Arland|Arland town
+55|005|04875|Barron|Barron city
+55|005|04900|Barron|Barron town
+55|005|05650|Bear Lake|Bear Lake town
+55|005|12250|Cameron|Cameron village
+55|005|13500|Cedar Lake|Cedar Lake town
+55|005|14325|Chetek|Chetek city
+55|005|14350|Chetek|Chetek town
+55|005|15600|Clinton|Clinton town
+55|005|17875|Crystal Lake|Crystal Lake town
+55|005|18025|Cumberland|Cumberland city
+55|005|18050|Cumberland|Cumberland town
+55|005|18575|Dallas|Dallas village
+55|005|18600|Dallas|Dallas town
+55|005|20650|Dovre|Dovre town
+55|005|20750|Doyle|Doyle town
+55|005|33225|Haugen|Haugen village
+55|005|41600|Lakeland|Lakeland town
+55|005|48825|Maple Grove|Maple Grove town
+55|005|48950|Maple Plain|Maple Plain town
+55|005|56350|New Auburn|New Auburn village
+55|005|58950|Oak Grove|Oak Grove town
+55|005|65150|Prairie Farm|Prairie Farm village
+55|005|65175|Prairie Farm|Prairie Farm town
+55|005|65200|Prairie Lake|Prairie Lake town
+55|005|67350|Rice Lake|Rice Lake city
+55|005|67375|Rice Lake|Rice Lake town
+55|005|74125|Sioux Creek|Sioux Creek town
+55|005|76550|Stanfold|Stanfold town
+55|005|76600|Stanley|Stanley town
+55|005|78450|Sumner|Sumner town
+55|005|81075|Turtle Lake|Turtle Lake village
+55|005|81100|Turtle Lake|Turtle Lake town
+55|005|82375|Vance Creek|Vance Creek town
+55|007|00000|County subdivisions not defined|County subdivisions not defined
+55|007|03225|Ashland|Ashland city
+55|007|04725|Barksdale|Barksdale town
+55|007|04750|Barnes|Barnes town
+55|007|05350|Bayfield|Bayfield city
+55|007|05375|Bayfield|Bayfield town
+55|007|05475|Bayview|Bayview town
+55|007|06200|Bell|Bell town
+55|007|11675|Cable|Cable town
+55|007|15750|Clover|Clover town
+55|007|19662|Delta|Delta town
+55|007|20887|Drummond|Drummond town
+55|007|22925|Eileen|Eileen town
+55|007|30175|Grandview|Grandview town
+55|007|36300|Hughes|Hughes town
+55|007|37200|Iron River|Iron River town
+55|007|39025|Kelly|Kelly town
+55|007|39425|Keystone|Keystone town
+55|007|44275|Lincoln|Lincoln town
+55|007|49900|Mason|Mason village
+55|007|49925|Mason|Mason town
+55|007|55375|Namakagon|Namakagon town
+55|007|60275|Orienta|Orienta town
+55|007|60775|Oulu|Oulu town
+55|007|62700|Pilsen|Pilsen town
+55|007|64512|Port Wing|Port Wing town
+55|007|70300|Russell|Russell town
+55|007|80750|Tripp|Tripp town
+55|007|83525|Washburn|Washburn city
+55|007|83550|Washburn|Washburn town
+55|009|01150|Allouez|Allouez village
+55|009|03425|Ashwaubenon|Ashwaubenon village
+55|009|06350|Bellevue|Bellevue village
+55|009|19700|Denmark|Denmark village
+55|009|19775|De Pere|De Pere city
+55|009|22225|Eaton|Eaton town
+55|009|29550|Glenmore|Glenmore town
+55|009|31000|Green Bay|Green Bay city
+55|009|31025|Green Bay|Green Bay town
+55|009|35150|Hobart|Hobart village
+55|009|35325|Holland|Holland town
+55|009|35950|Howard|Howard village
+55|009|36425|Humboldt|Humboldt town
+55|009|42900|Lawrence|Lawrence town
+55|009|43090|Ledgeview|Ledgeview town
+55|009|54300|Morrison|Morrison town
+55|009|56575|New Denmark|New Denmark town
+55|009|63075|Pittsfield|Pittsfield town
+55|009|65675|Pulaski|Pulaski village
+55|009|68875|Rockland|Rockland town
+55|009|72200|Scott|Scott town
+55|009|77975|Suamico|Suamico village
+55|009|89150|Wrightstown|Wrightstown village
+55|009|89175|Wrightstown|Wrightstown town
+55|011|01225|Alma|Alma city
+55|011|01250|Alma|Alma town
+55|011|06675|Belvidere|Belvidere town
+55|011|11025|Buffalo|Buffalo town
+55|011|11062|Buffalo City|Buffalo City city
+55|011|12500|Canton|Canton town
+55|011|16025|Cochrane|Cochrane village
+55|011|17737|Cross|Cross town
+55|011|20575|Dover|Dover town
+55|011|26850|Fountain City|Fountain City city
+55|011|29225|Gilmanton|Gilmanton town
+55|011|29375|Glencoe|Glencoe town
+55|011|44300|Lincoln|Lincoln town
+55|011|50075|Maxville|Maxville town
+55|011|52175|Milton|Milton town
+55|011|53450|Modena|Modena town
+55|011|53600|Mondovi|Mondovi city
+55|011|53625|Mondovi|Mondovi town
+55|011|53850|Montana|Montana town
+55|011|55450|Naples|Naples town
+55|011|55950|Nelson|Nelson village
+55|011|55975|Nelson|Nelson town
+55|011|84325|Waumandee|Waumandee town
+55|013|01900|Anderson|Anderson town
+55|013|08025|Blaine|Blaine town
+55|013|18750|Daniels|Daniels town
+55|013|19925|Dewey|Dewey town
+55|013|30450|Grantsburg|Grantsburg village
+55|013|30475|Grantsburg|Grantsburg town
+55|013|37650|Jackson|Jackson town
+55|013|40975|La Follette|La Follette town
+55|013|44325|Lincoln|Lincoln town
+55|013|50650|Meenon|Meenon town
+55|013|59075|Oakland|Oakland town
+55|013|69325|Roosevelt|Roosevelt town
+55|013|70225|Rusk|Rusk town
+55|013|71450|Sand Lake|Sand Lake town
+55|013|72225|Scott|Scott town
+55|013|74175|Siren|Siren village
+55|013|74200|Siren|Siren town
+55|013|78775|Swiss|Swiss town
+55|013|80375|Trade Lake|Trade Lake town
+55|013|81500|Union|Union town
+55|013|84975|Webb Lake|Webb Lake town
+55|013|85025|Webster|Webster village
+55|013|85850|West Marshland|West Marshland town
+55|013|88900|Wood River|Wood River town
+55|015|02375|Appleton|Appleton city
+55|015|09725|Brillion|Brillion city
+55|015|09750|Brillion|Brillion town
+55|015|10350|Brothertown|Brothertown town
+55|015|14000|Charlestown|Charlestown town
+55|015|14475|Chilton|Chilton city
+55|015|14500|Chilton|Chilton town
+55|015|32790|Harrison|Harrison village
+55|015|32800|Harrison|Harrison town
+55|015|34575|Hilbert|Hilbert village
+55|015|38800|Kaukauna|Kaukauna city
+55|015|39525|Kiel|Kiel city
+55|015|50825|Menasha|Menasha city
+55|015|56800|New Holstein|New Holstein city
+55|015|56825|New Holstein|New Holstein town
+55|015|64675|Potter|Potter village
+55|015|66275|Rantoul|Rantoul town
+55|015|73525|Sherwood|Sherwood village
+55|015|77400|Stockbridge|Stockbridge village
+55|015|77425|Stockbridge|Stockbridge town
+55|015|89000|Woodville|Woodville town
+55|017|02175|Anson|Anson town
+55|017|03075|Arthur|Arthur town
+55|017|03725|Auburn|Auburn town
+55|017|07525|Birch Creek|Birch Creek town
+55|017|08225|Bloomer|Bloomer city
+55|017|08250|Bloomer|Bloomer town
+55|017|09075|Boyd|Boyd village
+55|017|11750|Cadott|Cadott village
+55|017|14575|Chippewa Falls|Chippewa Falls city
+55|017|15350|Cleveland|Cleveland town
+55|017|16125|Colburn|Colburn town
+55|017|16800|Cooks Valley|Cooks Valley town
+55|017|17100|Cornell|Cornell city
+55|017|19625|Delmar|Delmar town
+55|017|21600|Eagle Point|Eagle Point town
+55|017|22300|Eau Claire|Eau Claire city
+55|017|22750|Edson|Edson town
+55|017|24375|Estella|Estella town
+55|017|29700|Goetz|Goetz town
+55|017|32125|Hallie|Hallie town
+55|017|36000|Howard|Howard town
+55|017|40900|Lafayette|Lafayette town
+55|017|41525|Lake Hallie|Lake Hallie village
+55|017|41550|Lake Holcombe|Lake Holcombe town
+55|017|56350|New Auburn|New Auburn village
+55|017|69975|Ruby|Ruby town
+55|017|71275|Sampson|Sampson town
+55|017|73875|Sigel|Sigel town
+55|017|76625|Stanley|Stanley city
+55|017|79875|Tilden|Tilden town
+55|017|86537|Wheaton|Wheaton town
+55|017|88875|Woodmohr|Woodmohr town
+55|019|00100|Abbotsford|Abbotsford city
+55|019|05750|Beaver|Beaver town
+55|019|11425|Butler|Butler town
+55|019|16150|Colby|Colby city
+55|019|16175|Colby|Colby town
+55|019|18125|Curtiss|Curtiss village
+55|019|20025|Dewhurst|Dewhurst town
+55|019|20450|Dorchester|Dorchester village
+55|019|22250|Eaton|Eaton town
+55|019|26775|Foster|Foster town
+55|019|27775|Fremont|Fremont town
+55|019|30275|Grant|Grant town
+55|019|30425|Granton|Granton village
+55|019|31275|Green Grove|Green Grove town
+55|019|31575|Greenwood|Greenwood city
+55|019|33900|Hendren|Hendren town
+55|019|34200|Hewett|Hewett town
+55|019|35050|Hixon|Hixon town
+55|019|35125|Hoard|Hoard town
+55|019|43700|Levis|Levis town
+55|019|45700|Longwood|Longwood town
+55|019|46075|Loyal|Loyal city
+55|019|46100|Loyal|Loyal town
+55|019|46625|Lynn|Lynn town
+55|019|50175|Mayville|Mayville town
+55|019|50275|Mead|Mead town
+55|019|51125|Mentor|Mentor town
+55|019|55800|Neillsville|Neillsville city
+55|019|60825|Owen|Owen city
+55|019|63000|Pine Valley|Pine Valley town
+55|019|67025|Reseburg|Reseburg town
+55|019|72450|Seif|Seif town
+55|019|73350|Sherman|Sherman town
+55|019|73550|Sherwood|Sherwood town
+55|019|76625|Stanley|Stanley city
+55|019|79625|Thorp|Thorp city
+55|019|79650|Thorp|Thorp town
+55|019|81825|Unity|Unity town
+55|019|81850|Unity|Unity village
+55|019|83350|Warner|Warner town
+55|019|83575|Washburn|Washburn town
+55|019|85925|Weston|Weston town
+55|019|88275|Withee|Withee village
+55|019|88300|Withee|Withee town
+55|019|89125|Worden|Worden town
+55|019|89425|York|York town
+55|021|02800|Arlington|Arlington village
+55|021|02825|Arlington|Arlington town
+55|021|11900|Caledonia|Caledonia town
+55|021|12200|Cambria|Cambria village
+55|021|16450|Columbus|Columbus city
+55|021|16475|Columbus|Columbus town
+55|021|17325|Courtland|Courtland town
+55|021|19375|Dekorra|Dekorra town
+55|021|20775|Doylestown|Doylestown village
+55|021|25150|Fall River|Fall River village
+55|021|26725|Fort Winnebago|Fort Winnebago town
+55|021|26875|Fountain Prairie|Fountain Prairie town
+55|021|28000|Friesland|Friesland village
+55|021|32375|Hampden|Hampden town
+55|021|43125|Leeds|Leeds town
+55|021|43775|Lewiston|Lewiston town
+55|021|45350|Lodi|Lodi city
+55|021|45375|Lodi|Lodi town
+55|021|46050|Lowville|Lowville town
+55|021|49150|Marcellon|Marcellon town
+55|021|57025|Newport|Newport town
+55|021|60687|Otsego|Otsego town
+55|021|60925|Pacific|Pacific town
+55|021|61100|Pardeeville|Pardeeville village
+55|021|64100|Portage|Portage city
+55|021|64900|Poynette|Poynette village
+55|021|66150|Randolph|Randolph village
+55|021|66175|Randolph|Randolph town
+55|021|68100|Rio|Rio village
+55|021|72250|Scott|Scott town
+55|021|76225|Springvale|Springvale town
+55|021|86100|West Point|West Point town
+55|021|88150|Wisconsin Dells|Wisconsin Dells city
+55|021|89300|Wyocena|Wyocena village
+55|021|89325|Wyocena|Wyocena town
+55|023|06225|Bell Center|Bell Center village
+55|023|09550|Bridgeport|Bridgeport town
+55|023|15075|Clayton|Clayton town
+55|023|19850|De Soto|De Soto village
+55|023|21900|Eastman|Eastman village
+55|023|21925|Eastman|Eastman town
+55|023|25725|Ferryville|Ferryville village
+55|023|27700|Freeman|Freeman town
+55|023|28450|Gays Mills|Gays Mills village
+55|023|32500|Haney|Haney town
+55|023|46675|Lynxville|Lynxville village
+55|023|49275|Marietta|Marietta town
+55|023|54900|Mount Sterling|Mount Sterling village
+55|023|65050|Prairie du Chien|Prairie du Chien city
+55|023|65075|Prairie du Chien|Prairie du Chien town
+55|023|72275|Scott|Scott town
+55|023|72500|Seneca|Seneca town
+55|023|74550|Soldiers Grove|Soldiers Grove village
+55|023|77175|Steuben|Steuben village
+55|023|82100|Utica|Utica town
+55|023|84725|Wauzeka|Wauzeka village
+55|023|84750|Wauzeka|Wauzeka town
+55|025|00875|Albion|Albion town
+55|025|06300|Belleville|Belleville village
+55|025|07025|Berry|Berry town
+55|025|07800|Black Earth|Black Earth village
+55|025|07825|Black Earth|Black Earth town
+55|025|08350|Blooming Grove|Blooming Grove town
+55|025|08475|Blue Mounds|Blue Mounds village
+55|025|08500|Blue Mounds|Blue Mounds town
+55|025|09775|Bristol|Bristol town
+55|025|10075|Brooklyn|Brooklyn village
+55|025|11150|Burke|Burke town
+55|025|12225|Cambridge|Cambridge village
+55|025|14650|Christiana|Christiana town
+55|025|17175|Cottage Grove|Cottage Grove village
+55|025|17200|Cottage Grove|Cottage Grove town
+55|025|17775|Cross Plains|Cross Plains village
+55|025|17800|Cross Plains|Cross Plains town
+55|025|18700|Dane|Dane village
+55|025|18725|Dane|Dane town
+55|025|19250|Deerfield|Deerfield village
+55|025|19275|Deerfield|Deerfield town
+55|025|19350|DeForest|DeForest village
+55|025|21100|Dunkirk|Dunkirk town
+55|025|21125|Dunn|Dunn town
+55|025|22575|Edgerton|Edgerton city
+55|025|25950|Fitchburg|Fitchburg city
+55|025|46850|McFarland|McFarland village
+55|025|48000|Madison|Madison city
+55|025|48025|Madison|Madison town
+55|025|48750|Maple Bluff|Maple Bluff village
+55|025|49575|Marshall|Marshall village
+55|025|50225|Mazomanie|Mazomanie village
+55|025|50250|Mazomanie|Mazomanie town
+55|025|50475|Medina|Medina town
+55|025|51575|Middleton|Middleton city
+55|025|51600|Middleton|Middleton town
+55|025|53675|Monona|Monona city
+55|025|54100|Montrose|Montrose town
+55|025|54725|Mount Horeb|Mount Horeb village
+55|025|60200|Oregon|Oregon village
+55|025|60225|Oregon|Oregon town
+55|025|62050|Perry|Perry town
+55|025|63375|Pleasant Springs|Pleasant Springs town
+55|025|65575|Primrose|Primrose town
+55|025|68725|Rockdale|Rockdale village
+55|025|69850|Roxbury|Roxbury town
+55|025|70400|Rutland|Rutland town
+55|025|73750|Shorewood Hills|Shorewood Hills village
+55|025|75850|Springdale|Springdale town
+55|025|75875|Springfield|Springfield town
+55|025|77675|Stoughton|Stoughton city
+55|025|78600|Sun Prairie|Sun Prairie city
+55|025|78625|Sun Prairie|Sun Prairie town
+55|025|82525|Vermont|Vermont town
+55|025|82600|Verona|Verona city
+55|025|82625|Verona|Verona town
+55|025|82750|Vienna|Vienna town
+55|025|84350|Waunakee|Waunakee village
+55|025|86125|Westport|Westport town
+55|025|87725|Windsor|Windsor village
+55|025|89450|York|York town
+55|027|03200|Ashippun|Ashippun town
+55|027|05900|Beaver Dam|Beaver Dam city
+55|027|05925|Beaver Dam|Beaver Dam town
+55|027|10450|Brownsville|Brownsville village
+55|027|11275|Burnett|Burnett town
+55|027|11850|Calamus|Calamus town
+55|027|14300|Chester|Chester town
+55|027|15900|Clyman|Clyman village
+55|027|15925|Clyman|Clyman town
+55|027|16450|Columbus|Columbus city
+55|027|23000|Elba|Elba town
+55|027|24000|Emmet|Emmet town
+55|027|27000|Fox Lake|Fox Lake city
+55|027|27025|Fox Lake|Fox Lake town
+55|027|33000|Hartford|Hartford city
+55|027|34000|Herman|Herman town
+55|027|35750|Horicon|Horicon city
+55|027|36100|Hubbard|Hubbard town
+55|027|36625|Hustisford|Hustisford village
+55|027|36650|Hustisford|Hustisford town
+55|027|37150|Iron Ridge|Iron Ridge village
+55|027|38675|Juneau|Juneau city
+55|027|38900|Kekoskee|Kekoskee village
+55|027|43050|Lebanon|Lebanon town
+55|027|43650|Leroy|Leroy town
+55|027|45475|Lomira|Lomira village
+55|027|45500|Lomira|Lomira town
+55|027|45950|Lowell|Lowell village
+55|027|45975|Lowell|Lowell town
+55|027|50200|Mayville|Mayville city
+55|027|56075|Neosho|Neosho village
+55|027|59000|Oak Grove|Oak Grove town
+55|027|64375|Portland|Portland town
+55|027|66150|Randolph|Randolph village
+55|027|66900|Reeseville|Reeseville village
+55|027|69962|Rubicon|Rubicon town
+55|027|73575|Shields|Shields town
+55|027|79375|Theresa|Theresa village
+55|027|79425|Theresa|Theresa town
+55|027|80525|Trenton|Trenton town
+55|027|83975|Watertown|Watertown city
+55|027|84425|Waupun|Waupun city
+55|027|85650|Westford|Westford town
+55|029|04325|Baileys Harbor|Baileys Harbor town
+55|029|10700|Brussels|Brussels town
+55|029|15025|Clay Banks|Clay Banks town
+55|029|22850|Egg Harbor|Egg Harbor village
+55|029|22875|Egg Harbor|Egg Harbor town
+55|029|24150|Ephraim|Ephraim village
+55|029|26625|Forestville|Forestville village
+55|029|26650|Forestville|Forestville town
+55|029|28300|Gardner|Gardner town
+55|029|28950|Gibraltar|Gibraltar town
+55|029|37750|Jacksonport|Jacksonport town
+55|029|43925|Liberty Grove|Liberty Grove town
+55|029|55500|Nasewaupee|Nasewaupee town
+55|029|72600|Sevastopol|Sevastopol town
+55|029|74225|Sister Bay|Sister Bay village
+55|029|77875|Sturgeon Bay|Sturgeon Bay city
+55|029|77900|Sturgeon Bay|Sturgeon Bay town
+55|029|81525|Union|Union town
+55|029|83600|Washington|Washington town
+55|031|00000|County subdivisions not defined|County subdivisions not defined
+55|031|01825|Amnicon|Amnicon town
+55|031|06775|Bennett|Bennett town
+55|031|10575|Brule|Brule town
+55|031|15825|Cloverland|Cloverland town
+55|031|18425|Dairyland|Dairyland town
+55|031|29925|Gordon|Gordon town
+55|031|33350|Hawthorne|Hawthorne town
+55|031|34425|Highland|Highland town
+55|031|41725|Lake Nebagamon|Lake Nebagamon village
+55|031|41800|Lakeside|Lakeside town
+55|031|48725|Maple|Maple town
+55|031|59100|Oakland|Oakland town
+55|031|59800|Oliver|Oliver village
+55|031|61250|Parkland|Parkland town
+55|031|63975|Poplar|Poplar village
+55|031|74575|Solon Springs|Solon Springs village
+55|031|74600|Solon Springs|Solon Springs town
+55|031|78275|Summit|Summit town
+55|031|78650|Superior|Superior city
+55|031|78660|Superior|Superior village
+55|031|78675|Superior|Superior town
+55|031|83512|Wascott|Wascott town
+55|033|09050|Boyceville|Boyceville village
+55|033|16275|Colfax|Colfax village
+55|033|16300|Colfax|Colfax town
+55|033|20675|Downing|Downing village
+55|033|21150|Dunn|Dunn town
+55|033|22375|Eau Galle|Eau Galle town
+55|033|23325|Elk Mound|Elk Mound village
+55|033|23350|Elk Mound|Elk Mound town
+55|033|30300|Grant|Grant town
+55|033|33400|Hay River|Hay River town
+55|033|39975|Knapp|Knapp village
+55|033|46175|Lucas|Lucas town
+55|033|51025|Menomonie|Menomonie city
+55|033|51050|Menomonie|Menomonie town
+55|033|56775|New Haven|New Haven town
+55|033|60725|Otter Creek|Otter Creek town
+55|033|62125|Peru|Peru town
+55|033|66550|Red Cedar|Red Cedar town
+55|033|67800|Ridgeland|Ridgeland village
+55|033|68700|Rock Creek|Rock Creek town
+55|033|71425|Sand Creek|Sand Creek town
+55|033|73300|Sheridan|Sheridan town
+55|033|73375|Sherman|Sherman town
+55|033|75750|Spring Brook|Spring Brook town
+55|033|76650|Stanton|Stanton town
+55|033|78975|Tainter|Tainter town
+55|033|79775|Tiffany|Tiffany town
+55|033|85975|Weston|Weston town
+55|033|86575|Wheeler|Wheeler village
+55|033|87375|Wilson|Wilson town
+55|035|01550|Altoona|Altoona city
+55|035|03825|Augusta|Augusta city
+55|035|09500|Bridge Creek|Bridge Creek town
+55|035|10625|Brunswick|Brunswick town
+55|035|15200|Clear Creek|Clear Creek town
+55|035|20800|Drammen|Drammen town
+55|035|22300|Eau Claire|Eau Claire city
+55|035|24825|Fairchild|Fairchild village
+55|035|24850|Fairchild|Fairchild town
+55|035|25125|Fall Creek|Fall Creek village
+55|035|44350|Lincoln|Lincoln town
+55|035|46275|Ludington|Ludington town
+55|035|60750|Otter Creek|Otter Creek town
+55|035|63400|Pleasant Valley|Pleasant Valley town
+55|035|72675|Seymour|Seymour town
+55|035|81550|Union|Union town
+55|035|83612|Washington|Washington town
+55|035|87400|Wilson|Wilson town
+55|037|03875|Aurora|Aurora town
+55|037|16550|Commonwealth|Commonwealth town
+55|037|25575|Fence|Fence town
+55|037|25675|Fern|Fern town
+55|037|26200|Florence|Florence town
+55|037|35600|Homestead|Homestead town
+55|037|45625|Long Lake|Long Lake town
+55|037|79975|Tipler|Tipler town
+55|039|01525|Alto|Alto town
+55|039|03150|Ashford|Ashford town
+55|039|03750|Auburn|Auburn town
+55|039|09300|Brandon|Brandon village
+55|039|11600|Byron|Byron town
+55|039|12075|Calumet|Calumet town
+55|039|12325|Campbellsport|Campbellsport village
+55|039|22475|Eden|Eden village
+55|039|22500|Eden|Eden town
+55|039|23150|Eldorado|Eldorado town
+55|039|24050|Empire|Empire town
+55|039|25075|Fairwater|Fairwater village
+55|039|26275|Fond du Lac|Fond du Lac city
+55|039|26300|Fond du Lac|Fond du Lac town
+55|039|26450|Forest|Forest town
+55|039|27975|Friendship|Friendship town
+55|039|39300|Kewaskum|Kewaskum village
+55|039|42125|Lamartine|Lamartine town
+55|039|49650|Marshfield|Marshfield town
+55|039|51450|Metomen|Metomen town
+55|039|54650|Mount Calvary|Mount Calvary village
+55|039|58000|North Fond du Lac|North Fond du Lac village
+55|039|58900|Oakfield|Oakfield village
+55|039|58925|Oakfield|Oakfield town
+55|039|60425|Osceola|Osceola town
+55|039|68175|Ripon|Ripon city
+55|039|68200|Ripon|Ripon town
+55|039|69525|Rosendale|Rosendale village
+55|039|69550|Rosendale|Rosendale town
+55|039|70500|St. Cloud|St. Cloud village
+55|039|76250|Springvale|Springvale town
+55|039|79125|Taycheedah|Taycheedah town
+55|039|84425|Waupun|Waupun city
+55|039|84450|Waupun|Waupun town
+55|041|01625|Alvin|Alvin town
+55|041|02625|Argonne|Argonne town
+55|041|02950|Armstrong Creek|Armstrong Creek town
+55|041|07950|Blackwell|Blackwell town
+55|041|13125|Caswell|Caswell town
+55|041|17425|Crandon|Crandon city
+55|041|17450|Crandon|Crandon town
+55|041|27600|Freedom|Freedom town
+55|041|34650|Hiles|Hiles town
+55|041|42500|Laona|Laona town
+55|041|44375|Lincoln|Lincoln town
+55|041|55575|Nashville|Nashville town
+55|041|64050|Popple River|Popple River town
+55|041|69625|Ross|Ross town
+55|041|83025|Wabeno|Wabeno town
+55|043|04250|Bagley|Bagley village
+55|043|06100|Beetown|Beetown town
+55|043|08375|Bloomington|Bloomington village
+55|043|08400|Bloomington|Bloomington town
+55|043|08525|Blue River|Blue River village
+55|043|08850|Boscobel|Boscobel city
+55|043|08875|Boscobel|Boscobel town
+55|043|13050|Cassville|Cassville village
+55|043|13075|Cassville|Cassville town
+55|043|13100|Castle Rock|Castle Rock town
+55|043|15500|Clifton|Clifton town
+55|043|17950|Cuba City|Cuba City city
+55|043|20175|Dickeyville|Dickeyville village
+55|043|23400|Ellenboro|Ellenboro town
+55|043|25600|Fennimore|Fennimore city
+55|043|25625|Fennimore|Fennimore town
+55|043|29525|Glen Haven|Glen Haven town
+55|043|32825|Harrison|Harrison town
+55|043|33500|Hazel Green|Hazel Green village
+55|043|33525|Hazel Green|Hazel Green town
+55|043|34300|Hickory Grove|Hickory Grove town
+55|043|37800|Jamestown|Jamestown town
+55|043|42250|Lancaster|Lancaster city
+55|043|43825|Liberty|Liberty town
+55|043|44050|Lima|Lima town
+55|043|45025|Little Grant|Little Grant town
+55|043|45325|Livingston|Livingston village
+55|043|49350|Marion|Marion town
+55|043|52150|Millville|Millville town
+55|043|53950|Montfort|Montfort village
+55|043|54675|Mount Hope|Mount Hope village
+55|043|54700|Mount Hope|Mount Hope town
+55|043|54775|Mount Ida|Mount Ida town
+55|043|55200|Muscoda|Muscoda village
+55|043|55225|Muscoda|Muscoda town
+55|043|58125|North Lancaster|North Lancaster town
+55|043|61150|Paris|Paris town
+55|043|61425|Patch Grove|Patch Grove village
+55|043|61450|Patch Grove|Patch Grove town
+55|043|63250|Platteville|Platteville city
+55|043|63275|Platteville|Platteville town
+55|043|64625|Potosi|Potosi village
+55|043|64650|Potosi|Potosi town
+55|043|74450|Smelser|Smelser town
+55|043|75075|South Lancaster|South Lancaster town
+55|043|79250|Tennyson|Tennyson village
+55|043|83900|Waterloo|Waterloo town
+55|043|84075|Watterstown|Watterstown town
+55|043|87800|Wingville|Wingville town
+55|043|88825|Woodman|Woodman village
+55|043|88850|Woodman|Woodman town
+55|043|89250|Wyalusing|Wyalusing town
+55|045|00325|Adams|Adams town
+55|045|00750|Albany|Albany village
+55|045|00775|Albany|Albany town
+55|045|06300|Belleville|Belleville village
+55|045|09925|Brodhead|Brodhead city
+55|045|10075|Brooklyn|Brooklyn village
+55|045|10100|Brooklyn|Brooklyn town
+55|045|10475|Browntown|Browntown village
+55|045|11725|Cadiz|Cadiz town
+55|045|15000|Clarno|Clarno town
+55|045|19075|Decatur|Decatur town
+55|045|24725|Exeter|Exeter town
+55|045|37875|Jefferson|Jefferson town
+55|045|38550|Jordan|Jordan town
+55|045|53750|Monroe|Monroe city
+55|045|53775|Monroe|Monroe town
+55|045|54000|Monticello|Monticello village
+55|045|54850|Mount Pleasant|Mount Pleasant town
+55|045|56700|New Glarus|New Glarus village
+55|045|56725|New Glarus|New Glarus town
+55|045|76075|Spring Grove|Spring Grove town
+55|045|78875|Sylvester|Sylvester town
+55|045|83625|Washington|Washington town
+55|045|89475|York|York town
+55|047|06925|Berlin|Berlin city
+55|047|06950|Berlin|Berlin town
+55|047|10125|Brooklyn|Brooklyn town
+55|047|31300|Green Lake|Green Lake city
+55|047|31350|Green Lake|Green Lake town
+55|047|39750|Kingston|Kingston village
+55|047|39775|Kingston|Kingston town
+55|047|46875|Mackford|Mackford town
+55|047|48400|Manchester|Manchester town
+55|047|49450|Markesan|Markesan city
+55|047|49500|Marquette|Marquette village
+55|047|49525|Marquette|Marquette town
+55|047|65600|Princeton|Princeton city
+55|047|65625|Princeton|Princeton town
+55|047|70925|St. Marie|St. Marie town
+55|047|72525|Seneca|Seneca town
+55|049|02550|Arena|Arena village
+55|049|02575|Arena|Arena town
+55|049|04025|Avoca|Avoca village
+55|049|04775|Barneveld|Barneveld village
+55|049|08125|Blanchardville|Blanchardville village
+55|049|09600|Brigham|Brigham town
+55|049|15875|Clyde|Clyde town
+55|049|15975|Cobb|Cobb village
+55|049|20350|Dodgeville|Dodgeville city
+55|049|20375|Dodgeville|Dodgeville town
+55|049|22525|Eden|Eden town
+55|049|34450|Highland|Highland village
+55|049|34475|Highland|Highland town
+55|049|35400|Hollandale|Hollandale village
+55|049|44625|Linden|Linden village
+55|049|44650|Linden|Linden town
+55|049|45325|Livingston|Livingston village
+55|049|51725|Mifflin|Mifflin town
+55|049|53100|Mineral Point|Mineral Point city
+55|049|53125|Mineral Point|Mineral Point town
+55|049|53950|Montfort|Montfort village
+55|049|54425|Moscow|Moscow town
+55|049|55200|Muscoda|Muscoda village
+55|049|65700|Pulaski|Pulaski town
+55|049|67100|Rewey|Rewey village
+55|049|67875|Ridgeway|Ridgeway village
+55|049|67900|Ridgeway|Ridgeway town
+55|049|83150|Waldwick|Waldwick town
+55|049|89350|Wyoming|Wyoming town
+55|051|00000|County subdivisions not defined|County subdivisions not defined
+55|051|01925|Anderson|Anderson town
+55|051|12525|Carey|Carey town
+55|051|31875|Gurney|Gurney town
+55|051|36525|Hurley|Hurley city
+55|051|39625|Kimball|Kimball town
+55|051|40075|Knight|Knight town
+55|051|51200|Mercer|Mercer town
+55|051|54075|Montreal|Montreal city
+55|051|59850|Oma|Oma town
+55|051|61825|Pence|Pence town
+55|051|71875|Saxon|Saxon town
+55|051|73400|Sherman|Sherman town
+55|053|00350|Adams|Adams town
+55|053|00900|Albion|Albion town
+55|053|01275|Alma|Alma town
+55|053|01300|Alma Center|Alma Center village
+55|053|05550|Bear Bluff|Bear Bluff town
+55|053|07900|Black River Falls|Black River Falls city
+55|053|09900|Brockway|Brockway town
+55|053|14800|City Point|City Point town
+55|053|15375|Cleveland|Cleveland town
+55|053|18075|Curran|Curran town
+55|053|27225|Franklin|Franklin town
+55|053|28250|Garden Valley|Garden Valley town
+55|053|28325|Garfield|Garfield town
+55|053|35075|Hixton|Hixton village
+55|053|35100|Hixton|Hixton town
+55|053|37275|Irving|Irving town
+55|053|40000|Knapp|Knapp town
+55|053|40325|Komensky|Komensky town
+55|053|48425|Manchester|Manchester town
+55|053|50750|Melrose|Melrose village
+55|053|50775|Melrose|Melrose town
+55|053|51300|Merrillan|Merrillan village
+55|053|52050|Millston|Millston town
+55|053|57775|North Bend|North Bend town
+55|053|57975|Northfield|Northfield town
+55|053|75900|Springfield|Springfield town
+55|053|79150|Taylor|Taylor village
+55|055|04125|Aztalan|Aztalan town
+55|055|12225|Cambridge|Cambridge village
+55|055|16225|Cold Spring|Cold Spring town
+55|055|16650|Concord|Concord town
+55|055|25300|Farmington|Farmington town
+55|055|26675|Fort Atkinson|Fort Atkinson city
+55|055|33700|Hebron|Hebron town
+55|055|37600|Ixonia|Ixonia town
+55|055|37900|Jefferson|Jefferson city
+55|055|37925|Jefferson|Jefferson town
+55|055|38350|Johnson Creek|Johnson Creek village
+55|055|40375|Koshkonong|Koshkonong town
+55|055|40750|Lac La Belle|Lac La Belle village
+55|055|41675|Lake Mills|Lake Mills city
+55|055|41700|Lake Mills|Lake Mills town
+55|055|51850|Milford|Milford town
+55|055|59125|Oakland|Oakland town
+55|055|61025|Palmyra|Palmyra village
+55|055|61050|Palmyra|Palmyra town
+55|055|78175|Sullivan|Sullivan village
+55|055|78200|Sullivan|Sullivan town
+55|055|78475|Sumner|Sumner town
+55|055|83925|Waterloo|Waterloo city
+55|055|83950|Waterloo|Waterloo town
+55|055|83975|Watertown|Watertown city
+55|055|84000|Watertown|Watertown town
+55|055|86925|Whitewater|Whitewater city
+55|057|02850|Armenia|Armenia town
+55|057|12350|Camp Douglas|Camp Douglas village
+55|057|15225|Clearfield|Clearfield town
+55|057|18225|Cutler|Cutler town
+55|057|23800|Elroy|Elroy city
+55|057|25850|Finley|Finley town
+55|057|26825|Fountain|Fountain town
+55|057|28850|Germantown|Germantown town
+55|057|36675|Hustler|Hustler village
+55|057|39575|Kildare|Kildare town
+55|057|39800|Kingston|Kingston town
+55|057|43300|Lemonweir|Lemonweir town
+55|057|44675|Lindina|Lindina town
+55|057|44825|Lisbon|Lisbon town
+55|057|46525|Lyndon|Lyndon town
+55|057|46600|Lyndon Station|Lyndon Station village
+55|057|49375|Marion|Marion town
+55|057|50025|Mauston|Mauston city
+55|057|55700|Necedah|Necedah village
+55|057|55725|Necedah|Necedah town
+55|057|56900|New Lisbon|New Lisbon city
+55|057|60150|Orange|Orange town
+55|057|63650|Plymouth|Plymouth town
+55|057|72625|Seven Mile Creek|Seven Mile Creek town
+55|057|78300|Summit|Summit town
+55|057|81725|Union Center|Union Center village
+55|057|88150|Wisconsin Dells|Wisconsin Dells city
+55|057|88500|Wonewoc|Wonewoc village
+55|057|88525|Wonewoc|Wonewoc town
+55|059|00000|County subdivisions not defined|County subdivisions not defined
+55|059|09635|Brighton|Brighton town
+55|059|09800|Bristol|Bristol village
+55|059|28675|Genoa City|Genoa City village
+55|059|39225|Kenosha|Kenosha city
+55|059|60975|Paddock Lake|Paddock Lake village
+55|059|61175|Paris|Paris town
+55|059|63300|Pleasant Prairie|Pleasant Prairie village
+55|059|66125|Randall|Randall town
+55|059|71163|Salem Lakes|Salem Lakes village
+55|059|74625|Somers|Somers village
+55|059|74650|Somers|Somers town
+55|059|81250|Twin Lakes|Twin Lakes village
+55|059|86500|Wheatland|Wheatland town
+55|061|00000|County subdivisions not defined|County subdivisions not defined
+55|061|00600|Ahnapee|Ahnapee town
+55|061|01000|Algoma|Algoma city
+55|061|12575|Carlton|Carlton town
+55|061|12850|Casco|Casco village
+55|061|12875|Casco|Casco town
+55|061|27250|Franklin|Franklin town
+55|061|39350|Kewaunee|Kewaunee city
+55|061|44425|Lincoln|Lincoln town
+55|061|46400|Luxemburg|Luxemburg village
+55|061|46425|Luxemburg|Luxemburg town
+55|061|54050|Montpelier|Montpelier town
+55|061|62625|Pierce|Pierce town
+55|061|66700|Red River|Red River town
+55|061|85775|West Kewaunee|West Kewaunee town
+55|063|04550|Bangor|Bangor village
+55|063|04575|Bangor|Bangor town
+55|063|04825|Barre|Barre town
+55|063|11300|Burns|Burns town
+55|063|12300|Campbell|Campbell town
+55|063|25325|Farmington|Farmington town
+55|063|31150|Greenfield|Greenfield town
+55|063|32275|Hamilton|Hamilton town
+55|063|35350|Holland|Holland town
+55|063|35450|Holmen|Holmen village
+55|063|40775|La Crosse|La Crosse city
+55|063|50400|Medary|Medary town
+55|063|59925|Onalaska|Onalaska city
+55|063|59950|Onalaska|Onalaska town
+55|063|68900|Rockland|Rockland village
+55|063|73125|Shelby|Shelby town
+55|063|83650|Washington|Washington town
+55|063|86275|West Salem|West Salem village
+55|065|02650|Argyle|Argyle village
+55|065|02675|Argyle|Argyle town
+55|065|06425|Belmont|Belmont village
+55|065|06450|Belmont|Belmont town
+55|065|06825|Benton|Benton village
+55|065|06850|Benton|Benton town
+55|065|08100|Blanchard|Blanchard town
+55|065|08125|Blanchardville|Blanchardville village
+55|065|17950|Cuba City|Cuba City city
+55|065|18875|Darlington|Darlington city
+55|065|18900|Darlington|Darlington town
+55|065|23262|Elk Grove|Elk Grove town
+55|065|25475|Fayette|Fayette town
+55|065|30575|Gratiot|Gratiot village
+55|065|30600|Gratiot|Gratiot town
+55|065|33500|Hazel Green|Hazel Green village
+55|065|39125|Kendall|Kendall town
+55|065|42175|Lamont|Lamont town
+55|065|54025|Monticello|Monticello town
+55|065|56625|New Diggings|New Diggings town
+55|065|72700|Seymour|Seymour town
+55|065|73825|Shullsburg|Shullsburg city
+55|065|73850|Shullsburg|Shullsburg town
+55|065|75275|South Wayne|South Wayne village
+55|065|84850|Wayne|Wayne town
+55|065|86800|White Oak Springs|White Oak Springs town
+55|065|87275|Willow Springs|Willow Springs town
+55|065|88050|Wiota|Wiota town
+55|067|00225|Ackley|Ackley town
+55|067|00625|Ainsworth|Ainsworth town
+55|067|02250|Antigo|Antigo city
+55|067|02275|Antigo|Antigo town
+55|067|23050|Elcho|Elcho town
+55|067|24575|Evergreen|Evergreen town
+55|067|42425|Langlade|Langlade town
+55|067|56200|Neva|Neva town
+55|067|58700|Norwood|Norwood town
+55|067|61375|Parrish|Parrish town
+55|067|61525|Peck|Peck town
+55|067|63825|Polar|Polar town
+55|067|65550|Price|Price town
+55|067|69175|Rolling|Rolling town
+55|067|78325|Summit|Summit town
+55|067|81950|Upham|Upham town
+55|067|82825|Vilas|Vilas town
+55|067|86750|White Lake|White Lake village
+55|067|88450|Wolf River|Wolf River town
+55|069|07500|Birch|Birch town
+55|069|09225|Bradley|Bradley town
+55|069|17125|Corning|Corning town
+55|069|32650|Harding|Harding town
+55|069|32875|Harrison|Harrison town
+55|069|39675|King|King town
+55|069|51250|Merrill|Merrill city
+55|069|51275|Merrill|Merrill town
+55|069|62950|Pine River|Pine River town
+55|069|68825|Rock Falls|Rock Falls town
+55|069|70325|Russell|Russell town
+55|069|72100|Schley|Schley town
+55|069|72300|Scott|Scott town
+55|069|74250|Skanawan|Skanawan town
+55|069|74725|Somo|Somo town
+55|069|80125|Tomahawk|Tomahawk city
+55|069|80150|Tomahawk|Tomahawk town
+55|069|87425|Wilson|Wilson town
+55|071|00000|County subdivisions not defined|County subdivisions not defined
+55|071|13237|Cato|Cato town
+55|071|13750|Centerville|Centerville town
+55|071|15400|Cleveland|Cleveland village
+55|071|16950|Cooperstown|Cooperstown town
+55|071|22275|Eaton|Eaton town
+55|071|27125|Francis Creek|Francis Creek village
+55|071|27275|Franklin|Franklin town
+55|071|28975|Gibson|Gibson town
+55|071|39000|Kellnersville|Kellnersville village
+55|071|39525|Kiel|Kiel city
+55|071|40425|Kossuth|Kossuth town
+55|071|43850|Liberty|Liberty town
+55|071|48500|Manitowoc|Manitowoc city
+55|071|48525|Manitowoc|Manitowoc town
+55|071|48575|Manitowoc Rapids|Manitowoc Rapids town
+55|071|48875|Maple Grove|Maple Grove town
+55|071|49250|Maribel|Maribel village
+55|071|50625|Meeme|Meeme town
+55|071|53325|Mishicot|Mishicot village
+55|071|53350|Mishicot|Mishicot town
+55|071|57200|Newton|Newton town
+55|071|66875|Reedsville|Reedsville village
+55|071|68925|Rockland|Rockland town
+55|071|71025|St. Nazianz|St. Nazianz village
+55|071|72075|Schleswig|Schleswig town
+55|071|81300|Two Creeks|Two Creeks town
+55|071|81325|Two Rivers|Two Rivers city
+55|071|81350|Two Rivers|Two Rivers town
+55|071|82200|Valders|Valders village
+55|071|86775|Whitelaw|Whitelaw village
+55|073|00100|Abbotsford|Abbotsford city
+55|073|03550|Athens|Athens village
+55|073|06875|Bergen|Bergen town
+55|073|06975|Berlin|Berlin town
+55|073|07000|Bern|Bern town
+55|073|07125|Bevent|Bevent town
+55|073|07600|Birnamwood|Birnamwood village
+55|073|09650|Brighton|Brighton town
+55|073|12975|Cassel|Cassel town
+55|073|15425|Cleveland|Cleveland town
+55|073|16150|Colby|Colby city
+55|073|18950|Day|Day town
+55|073|20450|Dorchester|Dorchester village
+55|073|22025|Easton|Easton town
+55|073|22425|Eau Pleine|Eau Pleine town
+55|073|22550|Edgar|Edgar village
+55|073|23075|Elderon|Elderon village
+55|073|23100|Elderon|Elderon town
+55|073|24025|Emmet|Emmet town
+55|073|25650|Fenwood|Fenwood village
+55|073|27150|Frankfort|Frankfort town
+55|073|27450|Franzen|Franzen town
+55|073|31450|Green Valley|Green Valley town
+55|073|31800|Guenther|Guenther town
+55|073|32150|Halsey|Halsey town
+55|073|32200|Hamburg|Hamburg town
+55|073|32900|Harrison|Harrison town
+55|073|33175|Hatley|Hatley village
+55|073|34225|Hewitt|Hewitt town
+55|073|35500|Holton|Holton town
+55|073|36325|Hull|Hull town
+55|073|38300|Johnson|Johnson town
+55|073|40150|Knowlton|Knowlton town
+55|073|40550|Kronenwetter|Kronenwetter village
+55|073|46975|McMillan|McMillan town
+55|073|48225|Maine|Maine village
+55|073|49075|Marathon|Marathon town
+55|073|49100|Marathon City|Marathon City village
+55|073|49675|Marshfield|Marshfield city
+55|073|54500|Mosinee|Mosinee city
+55|073|54525|Mosinee|Mosinee town
+55|073|57600|Norrie|Norrie town
+55|073|63500|Plover|Plover town
+55|073|66950|Reid|Reid town
+55|073|67250|Rib Falls|Rib Falls town
+55|073|67325|Rib Mountain|Rib Mountain town
+55|073|67950|Rietbrock|Rietbrock town
+55|073|68075|Ringle|Ringle town
+55|073|69725|Rothschild|Rothschild village
+55|073|72150|Schofield|Schofield city
+55|073|75400|Spencer|Spencer village
+55|073|75425|Spencer|Spencer town
+55|073|77150|Stettin|Stettin town
+55|073|77750|Stratford|Stratford village
+55|073|79350|Texas|Texas town
+55|073|81850|Unity|Unity village
+55|073|84475|Wausau|Wausau city
+55|073|84500|Wausau|Wausau town
+55|073|86025|Weston|Weston village
+55|073|86050|Weston|Weston town
+55|073|87025|Wien|Wien town
+55|075|01675|Amberg|Amberg town
+55|075|03525|Athelstane|Athelstane town
+55|075|05800|Beaver|Beaver town
+55|075|06000|Beecher|Beecher town
+55|075|16250|Coleman|Coleman village
+55|075|17725|Crivitz|Crivitz village
+55|075|21000|Dunbar|Dunbar town
+55|075|29775|Goodman|Goodman town
+55|075|31725|Grover|Grover town
+55|075|41075|Lake|Lake town
+55|075|49300|Marinette|Marinette city
+55|075|51537|Middle Inlet|Middle Inlet town
+55|075|57325|Niagara|Niagara city
+55|075|57350|Niagara|Niagara town
+55|075|61775|Pembine|Pembine town
+55|075|62175|Peshtigo|Peshtigo city
+55|075|62200|Peshtigo|Peshtigo town
+55|075|64275|Porterfield|Porterfield town
+55|075|64750|Pound|Pound village
+55|075|64775|Pound|Pound town
+55|075|73975|Silver Cliff|Silver Cliff town
+55|075|77000|Stephenson|Stephenson town
+55|075|83050|Wagner|Wagner town
+55|075|84525|Wausaukee|Wausaukee village
+55|075|84550|Wausaukee|Wausaukee town
+55|077|11050|Buffalo|Buffalo town
+55|077|17900|Crystal Lake|Crystal Lake town
+55|077|20525|Douglas|Douglas town
+55|077|24075|Endeavor|Endeavor village
+55|077|32775|Harris|Harris town
+55|077|50350|Mecan|Mecan town
+55|077|53875|Montello|Montello city
+55|077|53900|Montello|Montello town
+55|077|54600|Moundville|Moundville town
+55|077|56125|Neshkoro|Neshkoro village
+55|077|56150|Neshkoro|Neshkoro town
+55|077|57225|Newton|Newton town
+55|077|60875|Oxford|Oxford village
+55|077|60900|Oxford|Oxford town
+55|077|60962|Packwaukee|Packwaukee town
+55|077|73600|Shields|Shields town
+55|077|75925|Springfield|Springfield town
+55|077|85575|Westfield|Westfield village
+55|077|85600|Westfield|Westfield town
+55|078|50975|Menominee|Menominee town
+55|079|00000|County subdivisions not defined|County subdivisions not defined
+55|079|05450|Bayside|Bayside village
+55|079|10375|Brown Deer|Brown Deer village
+55|079|17975|Cudahy|Cudahy city
+55|079|27075|Fox Point|Fox Point village
+55|079|27300|Franklin|Franklin city
+55|079|29400|Glendale|Glendale city
+55|079|31125|Greendale|Greendale village
+55|079|31175|Greenfield|Greenfield city
+55|079|32075|Hales Corners|Hales Corners village
+55|079|53000|Milwaukee|Milwaukee city
+55|079|58800|Oak Creek|Oak Creek city
+55|079|68325|River Hills|River Hills village
+55|079|70650|St. Francis|St. Francis city
+55|079|73725|Shorewood|Shorewood village
+55|079|75125|South Milwaukee|South Milwaukee city
+55|079|84675|Wauwatosa|Wauwatosa city
+55|079|85300|West Allis|West Allis city
+55|079|85875|West Milwaukee|West Milwaukee village
+55|079|86700|Whitefish Bay|Whitefish Bay village
+55|081|00475|Adrian|Adrian town
+55|081|02025|Angelo|Angelo town
+55|081|11625|Byron|Byron town
+55|081|12950|Cashton|Cashton village
+55|081|15550|Clifton|Clifton town
+55|081|29450|Glendale|Glendale town
+55|081|30325|Grant|Grant town
+55|081|31225|Greenfield|Greenfield town
+55|081|37950|Jefferson|Jefferson town
+55|081|39150|Kendall|Kendall village
+55|081|40925|Lafayette|Lafayette town
+55|081|41000|La Grange|La Grange town
+55|081|43475|Leon|Leon town
+55|081|44450|Lincoln|Lincoln town
+55|081|44975|Little Falls|Little Falls town
+55|081|50800|Melvina|Melvina village
+55|081|56950|New Lyme|New Lyme town
+55|081|58575|Norwalk|Norwalk village
+55|081|58850|Oakdale|Oakdale village
+55|081|58875|Oakdale|Oakdale town
+55|081|60075|Ontario|Ontario village
+55|081|64425|Portland|Portland town
+55|081|67850|Ridgeville|Ridgeville town
+55|081|68900|Rockland|Rockland village
+55|081|72325|Scott|Scott town
+55|081|73150|Sheldon|Sheldon town
+55|081|75325|Sparta|Sparta city
+55|081|75350|Sparta|Sparta town
+55|081|80075|Tomah|Tomah city
+55|081|80100|Tomah|Tomah town
+55|081|83450|Warrens|Warrens village
+55|081|85125|Wellington|Wellington town
+55|081|85150|Wells|Wells town
+55|081|87525|Wilton|Wilton village
+55|081|87550|Wilton|Wilton town
+55|081|89275|Wyeville|Wyeville village
+55|083|00000|County subdivisions not defined|County subdivisions not defined
+55|083|00175|Abrams|Abrams town
+55|083|04275|Bagley|Bagley town
+55|083|09375|Brazeau|Brazeau town
+55|083|09425|Breed|Breed town
+55|083|14125|Chase|Chase town
+55|083|20475|Doty|Doty town
+55|083|29050|Gillett|Gillett city
+55|083|29075|Gillett|Gillett town
+55|083|35925|How|How town
+55|083|42075|Lakewood|Lakewood town
+55|083|43325|Lena|Lena village
+55|083|43350|Lena|Lena town
+55|083|45175|Little River|Little River town
+55|083|45275|Little Suamico|Little Suamico town
+55|083|49000|Maple Valley|Maple Valley town
+55|083|54200|Morgan|Morgan town
+55|083|54630|Mountain|Mountain town
+55|083|59350|Oconto|Oconto city
+55|083|59375|Oconto|Oconto town
+55|083|59400|Oconto Falls|Oconto Falls city
+55|083|59425|Oconto Falls|Oconto Falls town
+55|083|61900|Pensaukee|Pensaukee town
+55|083|65675|Pulaski|Pulaski village
+55|083|68400|Riverview|Riverview town
+55|083|76450|Spruce|Spruce town
+55|083|77300|Stiles|Stiles town
+55|083|78725|Suring|Suring village
+55|083|80325|Townsend|Townsend town
+55|083|81475|Underhill|Underhill town
+55|085|13025|Cassian|Cassian town
+55|085|17625|Crescent|Crescent town
+55|085|24125|Enterprise|Enterprise town
+55|085|33575|Hazelhurst|Hazelhurst town
+55|085|41887|Lake Tomahawk|Lake Tomahawk town
+55|085|45150|Little Rice|Little Rice town
+55|085|46650|Lynne|Lynne town
+55|085|53225|Minocqua|Minocqua town
+55|085|53662|Monico|Monico town
+55|085|56425|Newbold|Newbold town
+55|085|57450|Nokomis|Nokomis town
+55|085|61625|Pelican|Pelican town
+55|085|62600|Piehl|Piehl town
+55|085|62925|Pine Lake|Pine Lake town
+55|085|67200|Rhinelander|Rhinelander city
+55|085|72125|Schoepke|Schoepke town
+55|085|76975|Stella|Stella town
+55|085|78075|Sugar Camp|Sugar Camp town
+55|085|79700|Three Lakes|Three Lakes town
+55|085|88625|Woodboro|Woodboro town
+55|085|88950|Woodruff|Woodruff town
+55|087|02375|Appleton|Appleton city
+55|087|05575|Bear Creek|Bear Creek village
+55|087|07725|Black Creek|Black Creek village
+55|087|07750|Black Creek|Black Creek town
+55|087|08975|Bovina|Bovina town
+55|087|10750|Buchanan|Buchanan town
+55|087|13600|Center|Center town
+55|087|14750|Cicero|Cicero town
+55|087|16500|Combined Locks|Combined Locks village
+55|087|18525|Dale|Dale town
+55|087|19200|Deer Creek|Deer Creek town
+55|087|23425|Ellington|Ellington town
+55|087|27650|Freedom|Freedom town
+55|087|30075|Grand Chute|Grand Chute town
+55|087|31550|Greenville|Greenville town
+55|087|35825|Hortonia|Hortonia town
+55|087|35850|Hortonville|Hortonville village
+55|087|35950|Howard|Howard village
+55|087|38800|Kaukauna|Kaukauna city
+55|087|38825|Kaukauna|Kaukauna town
+55|087|39650|Kimberly|Kimberly village
+55|087|43875|Liberty|Liberty town
+55|087|44950|Little Chute|Little Chute village
+55|087|48250|Maine|Maine town
+55|087|48775|Maple Creek|Maple Creek town
+55|087|56925|New London|New London city
+55|087|57375|Nichols|Nichols village
+55|087|60000|Oneida|Oneida town
+55|087|60400|Osborn|Osborn town
+55|087|72725|Seymour|Seymour city
+55|087|72750|Seymour|Seymour town
+55|087|73625|Shiocton|Shiocton village
+55|087|82400|Vandenbroek|Vandenbroek town
+55|087|89150|Wrightstown|Wrightstown village
+55|089|00000|County subdivisions not defined|County subdivisions not defined
+55|089|05450|Bayside|Bayside village
+55|089|06150|Belgium|Belgium village
+55|089|06175|Belgium|Belgium town
+55|089|13375|Cedarburg|Cedarburg city
+55|089|13400|Cedarburg|Cedarburg town
+55|089|27550|Fredonia|Fredonia village
+55|089|27575|Fredonia|Fredonia town
+55|089|30000|Grafton|Grafton village
+55|089|30025|Grafton|Grafton town
+55|089|51150|Mequon|Mequon city
+55|089|56450|Newburg|Newburg village
+55|089|64450|Port Washington|Port Washington city
+55|089|64475|Port Washington|Port Washington town
+55|089|71700|Saukville|Saukville village
+55|089|71725|Saukville|Saukville town
+55|089|79475|Thiensville|Thiensville village
+55|091|00800|Albany|Albany town
+55|091|21225|Durand|Durand city
+55|091|21250|Durand|Durand town
+55|091|27175|Frankfort|Frankfort town
+55|091|44075|Lima|Lima town
+55|091|61925|Pepin|Pepin village
+55|091|61950|Pepin|Pepin town
+55|091|77475|Stockholm|Stockholm village
+55|091|77500|Stockholm|Stockholm town
+55|091|84025|Waterville|Waterville town
+55|091|84100|Waubeek|Waubeek town
+55|093|05325|Bay City|Bay City village
+55|093|15575|Clifton|Clifton town
+55|093|20150|Diamond Bluff|Diamond Bluff town
+55|093|23525|Ellsworth|Ellsworth village
+55|093|23550|Ellsworth|Ellsworth town
+55|093|23700|Elmwood|Elmwood village
+55|093|23775|El Paso|El Paso town
+55|093|29150|Gilman|Gilman town
+55|093|33050|Hartland|Hartland town
+55|093|37350|Isabelle|Isabelle town
+55|093|48175|Maiden Rock|Maiden Rock village
+55|093|48200|Maiden Rock|Maiden Rock town
+55|093|49775|Martell|Martell town
+55|093|59025|Oak Grove|Oak Grove town
+55|093|63600|Plum City|Plum City village
+55|093|65375|Prescott|Prescott city
+55|093|68275|River Falls|River Falls city
+55|093|68300|River Falls|River Falls town
+55|093|68775|Rock Elm|Rock Elm town
+55|093|71150|Salem|Salem town
+55|093|76100|Spring Lake|Spring Lake town
+55|093|76300|Spring Valley|Spring Valley village
+55|093|80550|Trenton|Trenton town
+55|093|80700|Trimbelle|Trimbelle town
+55|093|81600|Union|Union town
+55|095|00950|Alden|Alden town
+55|095|01725|Amery|Amery city
+55|095|02350|Apple River|Apple River town
+55|095|04475|Balsam Lake|Balsam Lake village
+55|095|04500|Balsam Lake|Balsam Lake town
+55|095|05825|Beaver|Beaver town
+55|095|07700|Black Brook|Black Brook town
+55|095|08750|Bone Lake|Bone Lake town
+55|095|13850|Centuria|Centuria village
+55|095|14837|Clam Falls|Clam Falls town
+55|095|15100|Clayton|Clayton village
+55|095|15125|Clayton|Clayton town
+55|095|15250|Clear Lake|Clear Lake village
+55|095|15275|Clear Lake|Clear Lake town
+55|095|20850|Dresser|Dresser village
+55|095|24450|Eureka|Eureka town
+55|095|25350|Farmington|Farmington town
+55|095|27500|Frederic|Frederic village
+55|095|28350|Garfield|Garfield town
+55|095|28725|Georgetown|Georgetown town
+55|095|38400|Johnstown|Johnstown town
+55|095|41900|Laketown|Laketown town
+55|095|44475|Lincoln|Lincoln town
+55|095|45775|Lorain|Lorain town
+55|095|46200|Luck|Luck village
+55|095|46225|Luck|Luck town
+55|095|46900|McKinley|McKinley town
+55|095|52075|Milltown|Milltown village
+55|095|52100|Milltown|Milltown town
+55|095|60450|Osceola|Osceola village
+55|095|60475|Osceola|Osceola town
+55|095|70550|St. Croix Falls|St. Croix Falls city
+55|095|70575|St. Croix Falls|St. Croix Falls town
+55|095|77050|Sterling|Sterling town
+55|095|81075|Turtle Lake|Turtle Lake village
+55|095|86350|West Sweden|West Sweden town
+55|097|00725|Alban|Alban town
+55|097|01400|Almond|Almond village
+55|097|01425|Almond|Almond town
+55|097|01750|Amherst|Amherst village
+55|097|01775|Amherst|Amherst town
+55|097|01800|Amherst Junction|Amherst Junction village
+55|097|06475|Belmont|Belmont town
+55|097|10925|Buena Vista|Buena Vista town
+55|097|12725|Carson|Carson town
+55|097|19975|Dewey|Dewey town
+55|097|22450|Eau Pleine|Eau Pleine town
+55|097|30350|Grant|Grant town
+55|097|36350|Hull|Hull town
+55|097|38650|Junction City|Junction City village
+55|097|42225|Lanark|Lanark town
+55|097|44800|Linwood|Linwood town
+55|097|51875|Milladore|Milladore village
+55|097|56000|Nelsonville|Nelsonville village
+55|097|56850|New Hope|New Hope town
+55|097|61325|Park Ridge|Park Ridge village
+55|097|62825|Pine Grove|Pine Grove town
+55|097|63525|Plover|Plover village
+55|097|63550|Plover|Plover town
+55|097|69575|Rosholt|Rosholt village
+55|097|72850|Sharon|Sharon town
+55|097|77200|Stevens Point|Stevens Point city
+55|097|77537|Stockton|Stockton town
+55|097|86975|Whiting|Whiting village
+55|099|13175|Catawba|Catawba village
+55|099|13200|Catawba|Catawba town
+55|099|22950|Eisenstein|Eisenstein town
+55|099|23200|Elk|Elk town
+55|099|23975|Emery|Emery town
+55|099|25775|Fifield|Fifield town
+55|099|26050|Flambeau|Flambeau town
+55|099|28750|Georgetown|Georgetown town
+55|099|31925|Hackett|Hackett town
+55|099|32675|Harmony|Harmony town
+55|099|34725|Hill|Hill town
+55|099|39175|Kennan|Kennan village
+55|099|39200|Kennan|Kennan town
+55|099|40175|Knox|Knox town
+55|099|41150|Lake|Lake town
+55|099|59525|Ogema|Ogema town
+55|099|61200|Park Falls|Park Falls city
+55|099|62450|Phillips|Phillips city
+55|099|65325|Prentice|Prentice village
+55|099|65350|Prentice|Prentice town
+55|099|75525|Spirit|Spirit town
+55|099|89100|Worcester|Worcester town
+55|101|00000|County subdivisions not defined|County subdivisions not defined
+55|101|11200|Burlington|Burlington city
+55|101|11225|Burlington|Burlington town
+55|101|11950|Caledonia|Caledonia village
+55|101|20625|Dover|Dover town
+55|101|23725|Elmwood Park|Elmwood Park village
+55|101|54875|Mount Pleasant|Mount Pleasant village
+55|101|57700|North Bay|North Bay village
+55|101|58600|Norway|Norway town
+55|101|66000|Racine|Racine city
+55|101|66350|Raymond|Raymond village
+55|101|68550|Rochester|Rochester village
+55|101|77925|Sturtevant|Sturtevant village
+55|101|81775|Union Grove|Union Grove village
+55|101|83825|Waterford|Waterford village
+55|101|83850|Waterford|Waterford town
+55|101|87700|Wind Point|Wind Point village
+55|101|89550|Yorkville|Yorkville village
+55|103|00675|Akan|Akan town
+55|103|08175|Bloom|Bloom town
+55|103|08600|Boaz|Boaz village
+55|103|10950|Buena Vista|Buena Vista town
+55|103|13300|Cazenovia|Cazenovia village
+55|103|19000|Dayton|Dayton town
+55|103|21400|Eagle|Eagle town
+55|103|26475|Forest|Forest town
+55|103|33925|Henrietta|Henrietta town
+55|103|37500|Ithaca|Ithaca town
+55|103|45575|Lone Rock|Lone Rock village
+55|103|49600|Marshall|Marshall town
+55|103|60350|Orion|Orion town
+55|103|67575|Richland|Richland town
+55|103|67625|Richland Center|Richland Center city
+55|103|67775|Richwood|Richwood town
+55|103|68675|Rockbridge|Rockbridge town
+55|103|78825|Sylvan|Sylvan town
+55|103|82900|Viola|Viola village
+55|103|85675|Westford|Westford town
+55|103|87250|Willow|Willow town
+55|103|89625|Yuba|Yuba village
+55|105|04100|Avon|Avon town
+55|105|06500|Beloit|Beloit city
+55|105|06525|Beloit|Beloit town
+55|105|09175|Bradford|Bradford town
+55|105|09925|Brodhead|Brodhead city
+55|105|13625|Center|Center town
+55|105|15625|Clinton|Clinton village
+55|105|15650|Clinton|Clinton town
+55|105|22575|Edgerton|Edgerton city
+55|105|24550|Evansville|Evansville city
+55|105|26400|Footville|Footville village
+55|105|28075|Fulton|Fulton town
+55|105|32700|Harmony|Harmony town
+55|105|37825|Janesville|Janesville city
+55|105|37850|Janesville|Janesville town
+55|105|38450|Johnstown|Johnstown town
+55|105|42575|La Prairie|La Prairie town
+55|105|44125|Lima|Lima town
+55|105|48150|Magnolia|Magnolia town
+55|105|52200|Milton|Milton city
+55|105|52225|Milton|Milton town
+55|105|56325|Newark|Newark town
+55|105|60250|Orfordville|Orfordville village
+55|105|63675|Plymouth|Plymouth town
+55|105|64225|Porter|Porter town
+55|105|68600|Rock|Rock town
+55|105|76325|Spring Valley|Spring Valley town
+55|105|81050|Turtle|Turtle town
+55|105|81650|Union|Union town
+55|107|03600|Atlanta|Atlanta town
+55|107|07175|Big Bend|Big Bend town
+55|107|07225|Big Falls|Big Falls town
+55|107|10500|Bruce|Bruce village
+55|107|13550|Cedar Rapids|Cedar Rapids town
+55|107|16775|Conrath|Conrath village
+55|107|20000|Dewey|Dewey town
+55|107|26100|Flambeau|Flambeau town
+55|107|29475|Glen Flora|Glen Flora village
+55|107|30375|Grant|Grant town
+55|107|31775|Grow|Grow town
+55|107|33275|Hawkins|Hawkins village
+55|107|33300|Hawkins|Hawkins town
+55|107|36125|Hubbard|Hubbard town
+55|107|36925|Ingram|Ingram village
+55|107|40850|Ladysmith|Ladysmith city
+55|107|42950|Lawrence|Lawrence town
+55|107|49625|Marshall|Marshall town
+55|107|55175|Murry|Murry town
+55|107|67600|Richland|Richland town
+55|107|70275|Rusk|Rusk town
+55|107|73175|Sheldon|Sheldon village
+55|107|74975|South Fork|South Fork town
+55|107|77775|Strickland|Strickland town
+55|107|77850|Stubbs|Stubbs town
+55|107|79575|Thornapple|Thornapple town
+55|107|80225|Tony|Tony village
+55|107|80950|True|True town
+55|107|83675|Washington|Washington town
+55|107|86450|Weyerhaeuser|Weyerhaeuser village
+55|107|87125|Wilkinson|Wilkinson town
+55|107|87175|Willard|Willard town
+55|107|87450|Wilson|Wilson town
+55|109|04400|Baldwin|Baldwin village
+55|109|04425|Baldwin|Baldwin town
+55|109|11775|Cady|Cady town
+55|109|18300|Cylon|Cylon town
+55|109|19325|Deer Park|Deer Park village
+55|109|22400|Eau Galle|Eau Galle town
+55|109|23925|Emerald|Emerald town
+55|109|24275|Erin Prairie|Erin Prairie town
+55|109|26525|Forest|Forest town
+55|109|29600|Glenwood|Glenwood town
+55|109|29625|Glenwood City|Glenwood City city
+55|109|32325|Hammond|Hammond village
+55|109|32350|Hammond|Hammond town
+55|109|36250|Hudson|Hudson city
+55|109|36275|Hudson|Hudson town
+55|109|39825|Kinnickinnic|Kinnickinnic town
+55|109|57100|New Richmond|New Richmond city
+55|109|58050|North Hudson|North Hudson village
+55|109|63425|Pleasant Valley|Pleasant Valley town
+55|109|67650|Richmond|Richmond town
+55|109|68275|River Falls|River Falls city
+55|109|68475|Roberts|Roberts village
+55|109|70200|Rush River|Rush River town
+55|109|70825|St. Joseph|St. Joseph town
+55|109|74675|Somerset|Somerset village
+55|109|74700|Somerset|Somerset town
+55|109|75950|Springfield|Springfield town
+55|109|76300|Spring Valley|Spring Valley village
+55|109|76675|Stanton|Stanton town
+55|109|76825|Star Prairie|Star Prairie village
+55|109|76850|Star Prairie|Star Prairie town
+55|109|80800|Troy|Troy town
+55|109|83400|Warren|Warren town
+55|109|87475|Wilson|Wilson village
+55|109|89025|Woodville|Woodville village
+55|111|04625|Baraboo|Baraboo city
+55|111|04650|Baraboo|Baraboo town
+55|111|05600|Bear Creek|Bear Creek town
+55|111|13300|Cazenovia|Cazenovia village
+55|111|19550|Dellona|Dellona town
+55|111|19675|Delton|Delton town
+55|111|24675|Excelsior|Excelsior town
+55|111|24900|Fairfield|Fairfield town
+55|111|27350|Franklin|Franklin town
+55|111|27675|Freedom|Freedom town
+55|111|31250|Greenfield|Greenfield town
+55|111|35625|Honey Creek|Honey Creek town
+55|111|37225|Ironton|Ironton village
+55|111|37250|Ironton|Ironton town
+55|111|41300|Lake Delton|Lake Delton village
+55|111|42825|La Valle|La Valle village
+55|111|42850|La Valle|La Valle town
+55|111|44225|Lime Ridge|Lime Ridge village
+55|111|45400|Loganville|Loganville village
+55|111|51325|Merrimac|Merrimac village
+55|111|51350|Merrimac|Merrimac town
+55|111|58025|North Freedom|North Freedom village
+55|111|63125|Plain|Plain village
+55|111|65100|Prairie du Sac|Prairie du Sac village
+55|111|65125|Prairie du Sac|Prairie du Sac town
+55|111|66800|Reedsburg|Reedsburg city
+55|111|66825|Reedsburg|Reedsburg town
+55|111|68975|Rock Springs|Rock Springs village
+55|111|71650|Sauk City|Sauk City village
+55|111|76025|Spring Green|Spring Green village
+55|111|76050|Spring Green|Spring Green town
+55|111|78525|Sumpter|Sumpter town
+55|111|80825|Troy|Troy town
+55|111|83700|Washington|Washington town
+55|111|85325|West Baraboo|West Baraboo village
+55|111|85625|Westfield|Westfield town
+55|111|87775|Winfield|Winfield town
+55|111|88150|Wisconsin Dells|Wisconsin Dells city
+55|111|88775|Woodland|Woodland town
+55|113|05200|Bass Lake|Bass Lake town
+55|113|17225|Couderay|Couderay village
+55|113|17250|Couderay|Couderay town
+55|113|20825|Draper|Draper town
+55|113|22625|Edgewater|Edgewater town
+55|113|24700|Exeland|Exeland village
+55|113|33450|Hayward|Hayward city
+55|113|33475|Hayward|Hayward town
+55|113|36450|Hunter|Hunter town
+55|113|43400|Lenroot|Lenroot town
+55|113|50300|Meadowbrook|Meadowbrook town
+55|113|51425|Meteor|Meteor town
+55|113|59600|Ojibwa|Ojibwa town
+55|113|66050|Radisson|Radisson village
+55|113|66075|Radisson|Radisson town
+55|113|69750|Round Lake|Round Lake town
+55|113|71500|Sand Lake|Sand Lake town
+55|113|75450|Spider Lake|Spider Lake town
+55|113|85100|Weirgor|Weirgor town
+55|113|87975|Winter|Winter village
+55|113|88000|Winter|Winter town
+55|115|01375|Almon|Almon town
+55|115|01975|Angelica|Angelica town
+55|115|02075|Aniwa|Aniwa village
+55|115|02100|Aniwa|Aniwa town
+55|115|05000|Bartelme|Bartelme town
+55|115|06275|Belle Plaine|Belle Plaine town
+55|115|07600|Birnamwood|Birnamwood village
+55|115|07625|Birnamwood|Birnamwood town
+55|115|08725|Bonduel|Bonduel village
+55|115|09025|Bowler|Bowler village
+55|115|13325|Cecil|Cecil village
+55|115|22975|Eland|Eland village
+55|115|24775|Fairbanks|Fairbanks town
+55|115|28825|Germania|Germania town
+55|115|30400|Grant|Grant town
+55|115|31500|Green Valley|Green Valley town
+55|115|31675|Gresham|Gresham village
+55|115|33075|Hartland|Hartland town
+55|115|34025|Herman|Herman town
+55|115|36700|Hutchins|Hutchins town
+55|115|43675|Lessor|Lessor town
+55|115|48900|Maple Grove|Maple Grove town
+55|115|49400|Marion|Marion city
+55|115|50000|Mattoon|Mattoon village
+55|115|54250|Morris|Morris town
+55|115|55675|Navarino|Navarino town
+55|115|61700|Pella|Pella town
+55|115|65675|Pulaski|Pulaski village
+55|115|66750|Red Springs|Red Springs town
+55|115|67675|Richmond|Richmond town
+55|115|72550|Seneca|Seneca town
+55|115|72925|Shawano|Shawano city
+55|115|79825|Tigerton|Tigerton village
+55|115|83725|Washington|Washington town
+55|115|84225|Waukechon|Waukechon town
+55|115|85275|Wescott|Wescott town
+55|115|88325|Wittenberg|Wittenberg village
+55|115|88350|Wittenberg|Wittenberg town
+55|117|00000|County subdivisions not defined|County subdivisions not defined
+55|117|00450|Adell|Adell village
+55|117|12825|Cascade|Cascade village
+55|117|13475|Cedar Grove|Cedar Grove village
+55|117|23275|Elkhart Lake|Elkhart Lake village
+55|117|29350|Glenbeulah|Glenbeulah village
+55|117|31100|Greenbush|Greenbush town
+55|117|34050|Herman|Herman town
+55|117|35375|Holland|Holland town
+55|117|36025|Howards Grove|Howards Grove village
+55|117|40275|Kohler|Kohler village
+55|117|44150|Lima|Lima town
+55|117|46575|Lyndon|Lyndon town
+55|117|53375|Mitchell|Mitchell town
+55|117|54475|Mosel|Mosel town
+55|117|60100|Oostburg|Oostburg village
+55|117|63700|Plymouth|Plymouth city
+55|117|63725|Plymouth|Plymouth town
+55|117|66200|Random Lake|Random Lake village
+55|117|67150|Rhine|Rhine town
+55|117|70350|Russell|Russell town
+55|117|72350|Scott|Scott town
+55|117|72975|Sheboygan|Sheboygan city
+55|117|73000|Sheboygan|Sheboygan town
+55|117|73025|Sheboygan Falls|Sheboygan Falls city
+55|117|73050|Sheboygan Falls|Sheboygan Falls town
+55|117|73425|Sherman|Sherman town
+55|117|83100|Waldo|Waldo village
+55|117|87500|Wilson|Wilson town
+55|119|03900|Aurora|Aurora town
+55|119|10400|Browning|Browning town
+55|119|14200|Chelsea|Chelsea town
+55|119|15450|Cleveland|Cleveland town
+55|119|19225|Deer Creek|Deer Creek town
+55|119|26425|Ford|Ford town
+55|119|29175|Gilman|Gilman village
+55|119|29837|Goodrich|Goodrich town
+55|119|31600|Greenwood|Greenwood town
+55|119|31750|Grover|Grover town
+55|119|32300|Hammel|Hammel town
+55|119|35525|Holway|Holway town
+55|119|38627|Jump River|Jump River town
+55|119|44900|Little Black|Little Black town
+55|119|46150|Lublin|Lublin village
+55|119|46925|McKinley|McKinley town
+55|119|48925|Maplehurst|Maplehurst town
+55|119|50425|Medford|Medford city
+55|119|50450|Medford|Medford town
+55|119|53550|Molitor|Molitor town
+55|119|62100|Pershing|Pershing town
+55|119|67275|Rib Lake|Rib Lake village
+55|119|67300|Rib Lake|Rib Lake town
+55|119|69400|Roosevelt|Roosevelt town
+55|119|77100|Stetsonville|Stetsonville village
+55|119|78950|Taft|Taft town
+55|119|85450|Westboro|Westboro town
+55|121|00925|Albion|Albion town
+55|121|02500|Arcadia|Arcadia city
+55|121|02525|Arcadia|Arcadia town
+55|121|08075|Blair|Blair city
+55|121|11325|Burnside|Burnside town
+55|121|11975|Caledonia|Caledonia town
+55|121|14525|Chimney Rock|Chimney Rock town
+55|121|20300|Dodge|Dodge town
+55|121|23175|Eleva|Eleva village
+55|121|24400|Ettrick|Ettrick village
+55|121|24425|Ettrick|Ettrick town
+55|121|28150|Gale|Gale town
+55|121|28200|Galesville|Galesville city
+55|121|32050|Hale|Hale town
+55|121|36800|Independence|Independence city
+55|121|44500|Lincoln|Lincoln town
+55|121|60575|Osseo|Osseo city
+55|121|62650|Pigeon|Pigeon town
+55|121|62675|Pigeon Falls|Pigeon Falls village
+55|121|65500|Preston|Preston town
+55|121|77825|Strum|Strum village
+55|121|78500|Sumner|Sumner town
+55|121|80475|Trempealeau|Trempealeau village
+55|121|80500|Trempealeau|Trempealeau town
+55|121|81875|Unity|Unity town
+55|121|86725|Whitehall|Whitehall city
+55|123|06900|Bergen|Bergen town
+55|123|14150|Chaseburg|Chaseburg village
+55|123|14675|Christiana|Christiana town
+55|123|15675|Clinton|Clinton town
+55|123|16875|Coon|Coon town
+55|123|16900|Coon Valley|Coon Valley village
+55|123|19850|De Soto|De Soto village
+55|123|26550|Forest|Forest town
+55|123|27400|Franklin|Franklin town
+55|123|28625|Genoa|Genoa village
+55|123|28650|Genoa|Genoa town
+55|123|31625|Greenwood|Greenwood town
+55|123|32225|Hamburg|Hamburg town
+55|123|32725|Harmony|Harmony town
+55|123|34825|Hillsboro|Hillsboro city
+55|123|34850|Hillsboro|Hillsboro town
+55|123|37975|Jefferson|Jefferson town
+55|123|39475|Kickapoo|Kickapoo town
+55|123|40875|La Farge|La Farge village
+55|123|43900|Liberty|Liberty town
+55|123|60075|Ontario|Ontario village
+55|123|66450|Readstown|Readstown village
+55|123|76725|Stark|Stark town
+55|123|77075|Sterling|Sterling town
+55|123|77550|Stoddard|Stoddard village
+55|123|81675|Union|Union town
+55|123|82900|Viola|Viola village
+55|123|82925|Viroqua|Viroqua city
+55|123|82950|Viroqua|Viroqua town
+55|123|85050|Webster|Webster town
+55|123|85475|Westby|Westby city
+55|123|86525|Wheatland|Wheatland town
+55|123|86900|Whitestown|Whitestown town
+55|125|02450|Arbor Vitae|Arbor Vitae town
+55|125|08950|Boulder Junction|Boulder Junction town
+55|125|15850|Cloverland|Cloverland town
+55|125|16750|Conover|Conover town
+55|125|21625|Eagle River|Eagle River city
+55|125|40687|Lac du Flambeau|Lac du Flambeau town
+55|125|42325|Land O'Lakes|Land O'Lakes town
+55|125|44525|Lincoln|Lincoln town
+55|125|48462|Manitowish Waters|Manitowish Waters town
+55|125|62425|Phelps|Phelps town
+55|125|63625|Plum Lake|Plum Lake town
+55|125|65425|Presque Isle|Presque Isle town
+55|125|70725|St. Germain|St. Germain town
+55|125|83750|Washington|Washington town
+55|125|87600|Winchester|Winchester town
+55|127|08265|Bloomfield|Bloomfield village
+55|127|08275|Bloomfield|Bloomfield town
+55|127|11200|Burlington|Burlington city
+55|127|18825|Darien|Darien village
+55|127|18850|Darien|Darien town
+55|127|19450|Delavan|Delavan city
+55|127|19475|Delavan|Delavan town
+55|127|22100|East Troy|East Troy village
+55|127|22125|East Troy|East Troy town
+55|127|23300|Elkhorn|Elkhorn city
+55|127|26350|Fontana-on-Geneva Lake|Fontana-on-Geneva Lake village
+55|127|28550|Geneva|Geneva town
+55|127|28675|Genoa City|Genoa City village
+55|127|40950|Lafayette|Lafayette town
+55|127|41050|La Grange|La Grange town
+55|127|41450|Lake Geneva|Lake Geneva city
+55|127|44750|Linn|Linn town
+55|127|46725|Lyons|Lyons town
+55|127|55050|Mukwonago|Mukwonago village
+55|127|67725|Richmond|Richmond town
+55|127|72875|Sharon|Sharon village
+55|127|72900|Sharon|Sharon town
+55|127|76175|Spring Prairie|Spring Prairie town
+55|127|78100|Sugar Creek|Sugar Creek town
+55|127|80875|Troy|Troy town
+55|127|83250|Walworth|Walworth village
+55|127|83275|Walworth|Walworth town
+55|127|86925|Whitewater|Whitewater city
+55|127|86950|Whitewater|Whitewater town
+55|127|87200|Williams Bay|Williams Bay village
+55|129|04950|Barronett|Barronett town
+55|129|05125|Bashaw|Bashaw town
+55|129|05225|Bass Lake|Bass Lake town
+55|129|05875|Beaver Brook|Beaver Brook town
+55|129|07550|Birchwood|Birchwood village
+55|129|07575|Birchwood|Birchwood town
+55|129|10150|Brooklyn|Brooklyn town
+55|129|12925|Casey|Casey town
+55|129|14425|Chicog|Chicog town
+55|129|17850|Crystal|Crystal town
+55|129|24600|Evergreen|Evergreen town
+55|129|28025|Frog Creek|Frog Creek town
+55|129|31825|Gull Lake|Gull Lake town
+55|129|45650|Long Lake|Long Lake town
+55|129|47025|Madge|Madge town
+55|129|53250|Minong|Minong village
+55|129|53275|Minong|Minong town
+55|129|71637|Sarona|Sarona town
+55|129|73200|Shell Lake|Shell Lake city
+55|129|75625|Spooner|Spooner city
+55|129|75650|Spooner|Spooner town
+55|129|75800|Springbrook|Springbrook town
+55|129|77350|Stinnett|Stinnett town
+55|129|77650|Stone Lake|Stone Lake town
+55|129|80450|Trego|Trego town
+55|131|00425|Addison|Addison town
+55|131|05050|Barton|Barton town
+55|131|24225|Erin|Erin town
+55|131|25375|Farmington|Farmington town
+55|131|28875|Germantown|Germantown village
+55|131|28900|Germantown|Germantown town
+55|131|33000|Hartford|Hartford city
+55|131|33025|Hartford|Hartford town
+55|131|37675|Jackson|Jackson village
+55|131|37700|Jackson|Jackson town
+55|131|39300|Kewaskum|Kewaskum village
+55|131|39325|Kewaskum|Kewaskum town
+55|131|53000|Milwaukee|Milwaukee city
+55|131|56450|Newburg|Newburg village
+55|131|63875|Polk|Polk town
+55|131|67475|Richfield|Richfield village
+55|131|74400|Slinger|Slinger village
+55|131|80575|Trenton|Trenton town
+55|131|84900|Wayne|Wayne town
+55|131|85350|West Bend|West Bend city
+55|131|85375|West Bend|West Bend town
+55|133|07200|Big Bend|Big Bend village
+55|133|10025|Brookfield|Brookfield city
+55|133|10050|Brookfield|Brookfield town
+55|133|11475|Butler|Butler village
+55|133|14225|Chenequa|Chenequa village
+55|133|19400|Delafield|Delafield city
+55|133|19425|Delafield|Delafield town
+55|133|20550|Dousman|Dousman village
+55|133|21425|Eagle|Eagle village
+55|133|21450|Eagle|Eagle town
+55|133|23575|Elm Grove|Elm Grove village
+55|133|28487|Genesee|Genesee town
+55|133|33100|Hartland|Hartland village
+55|133|40750|Lac La Belle|Lac La Belle village
+55|133|42450|Lannon|Lannon village
+55|133|44850|Lisbon|Lisbon town
+55|133|51000|Menomonee Falls|Menomonee Falls village
+55|133|51375|Merton|Merton village
+55|133|51400|Merton|Merton town
+55|133|53000|Milwaukee|Milwaukee city
+55|133|55050|Mukwonago|Mukwonago village
+55|133|55075|Mukwonago|Mukwonago town
+55|133|55275|Muskego|Muskego city
+55|133|55550|Nashotah|Nashotah village
+55|133|56375|New Berlin|New Berlin city
+55|133|58400|North Prairie|North Prairie village
+55|133|59250|Oconomowoc|Oconomowoc city
+55|133|59275|Oconomowoc|Oconomowoc town
+55|133|59300|Oconomowoc Lake|Oconomowoc Lake village
+55|133|60700|Ottawa|Ottawa town
+55|133|62240|Pewaukee|Pewaukee city
+55|133|62250|Pewaukee|Pewaukee village
+55|133|78375|Summit|Summit village
+55|133|78750|Sussex|Sussex village
+55|133|82575|Vernon|Vernon town
+55|133|83175|Wales|Wales village
+55|133|84250|Waukesha|Waukesha city
+55|133|84275|Waukesha|Waukesha town
+55|135|05625|Bear Creek|Bear Creek town
+55|135|07250|Big Falls|Big Falls village
+55|135|12000|Caledonia|Caledonia town
+55|135|15725|Clintonville|Clintonville city
+55|135|19025|Dayton|Dayton town
+55|135|21200|Dupont|Dupont town
+55|135|23850|Embarrass|Embarrass village
+55|135|25400|Farmington|Farmington town
+55|135|27800|Fremont|Fremont village
+55|135|27850|Fremont|Fremont town
+55|135|32925|Harrison|Harrison town
+55|135|33850|Helvetia|Helvetia town
+55|135|37025|Iola|Iola village
+55|135|37050|Iola|Iola town
+55|135|42650|Larrabee|Larrabee town
+55|135|43075|Lebanon|Lebanon town
+55|135|44575|Lind|Lind town
+55|135|45300|Little Wolf|Little Wolf town
+55|135|48350|Manawa|Manawa city
+55|135|49400|Marion|Marion city
+55|135|49975|Matteson|Matteson town
+55|135|55025|Mukwa|Mukwa town
+55|135|56925|New London|New London city
+55|135|59475|Ogdensburg|Ogdensburg village
+55|135|69900|Royalton|Royalton town
+55|135|70900|St. Lawrence|St. Lawrence town
+55|135|71975|Scandinavia|Scandinavia village
+55|135|72000|Scandinavia|Scandinavia town
+55|135|81700|Union|Union town
+55|135|84375|Waupaca|Waupaca city
+55|135|84400|Waupaca|Waupaca town
+55|135|86400|Weyauwega|Weyauwega city
+55|135|86425|Weyauwega|Weyauwega town
+55|135|89375|Wyoming|Wyoming town
+55|137|03925|Aurora|Aurora town
+55|137|06925|Berlin|Berlin city
+55|137|08300|Bloomfield|Bloomfield town
+55|137|16375|Coloma|Coloma village
+55|137|16400|Coloma|Coloma town
+55|137|18475|Dakota|Dakota town
+55|137|19300|Deerfield|Deerfield town
+55|137|32450|Hancock|Hancock village
+55|137|32475|Hancock|Hancock town
+55|137|43500|Leon|Leon town
+55|137|45425|Lohrville|Lohrville village
+55|137|49425|Marion|Marion town
+55|137|54825|Mount Morris|Mount Morris town
+55|137|59225|Oasis|Oasis town
+55|137|63150|Plainfield|Plainfield village
+55|137|63175|Plainfield|Plainfield town
+55|137|64975|Poy Sippi|Poy Sippi town
+55|137|66625|Redgranite|Redgranite village
+55|137|67550|Richford|Richford town
+55|137|69425|Rose|Rose town
+55|137|71825|Saxeville|Saxeville town
+55|137|76400|Springwater|Springwater town
+55|137|83425|Warren|Warren town
+55|137|84625|Wautoma|Wautoma city
+55|137|84650|Wautoma|Wautoma town
+55|137|87075|Wild Rose|Wild Rose village
+55|139|01025|Algoma|Algoma town
+55|139|02375|Appleton|Appleton city
+55|139|08000|Black Wolf|Black Wolf town
+55|139|15150|Clayton|Clayton town
+55|139|26982|Fox Crossing|Fox Crossing village
+55|139|50825|Menasha|Menasha city
+55|139|55750|Neenah|Neenah city
+55|139|55775|Neenah|Neenah town
+55|139|55850|Nekimi|Nekimi town
+55|139|56100|Nepeuskun|Nepeuskun town
+55|139|59875|Omro|Omro city
+55|139|59900|Omro|Omro town
+55|139|60500|Oshkosh|Oshkosh city
+55|139|60525|Oshkosh|Oshkosh town
+55|139|64875|Poygan|Poygan town
+55|139|70125|Rushford|Rushford town
+55|139|82175|Utica|Utica town
+55|139|82875|Vinland|Vinland town
+55|139|87650|Winchester|Winchester town
+55|139|87900|Winneconne|Winneconne village
+55|139|87925|Winneconne|Winneconne town
+55|139|88475|Wolf River|Wolf River town
+55|141|03025|Arpin|Arpin village
+55|141|03050|Arpin|Arpin town
+55|141|03775|Auburndale|Auburndale village
+55|141|03800|Auburndale|Auburndale town
+55|141|07650|Biron|Biron village
+55|141|12275|Cameron|Cameron town
+55|141|12775|Cary|Cary town
+55|141|17525|Cranmoor|Cranmoor town
+55|141|20075|Dexter|Dexter town
+55|141|30125|Grand Rapids|Grand Rapids town
+55|141|32575|Hansen|Hansen town
+55|141|34250|Hewitt|Hewitt village
+55|141|34675|Hiles|Hiles town
+55|141|44550|Lincoln|Lincoln town
+55|141|49675|Marshfield|Marshfield city
+55|141|49700|Marshfield|Marshfield town
+55|141|51875|Milladore|Milladore village
+55|141|51900|Milladore|Milladore town
+55|141|55875|Nekoosa|Nekoosa city
+55|141|63100|Pittsville|Pittsville city
+55|141|64175|Port Edwards|Port Edwards village
+55|141|64200|Port Edwards|Port Edwards town
+55|141|67000|Remington|Remington town
+55|141|67500|Richfield|Richfield town
+55|141|68625|Rock|Rock town
+55|141|70000|Rudolph|Rudolph village
+55|141|70025|Rudolph|Rudolph town
+55|141|71600|Saratoga|Saratoga town
+55|141|72575|Seneca|Seneca town
+55|141|73475|Sherry|Sherry town
+55|141|73900|Sigel|Sigel town
+55|141|82650|Vesper|Vesper village
+55|141|88200|Wisconsin Rapids|Wisconsin Rapids city
+55|141|88575|Wood|Wood town
