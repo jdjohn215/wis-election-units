@@ -14,10 +14,7 @@ wards.2011 <- st_read("data/ward-shp/MilwaukeeCounty_2011.geojson") %>%
   as_tibble() %>%
   mutate(wardsource_row = row_number()) %>%
   select(-county_fips) %>%
-  mutate(ward_name_v2 = if_else(str_detect(ward_name, "[1-9] [A-Z]$"),
-                                true = stringi::stri_replace_last_fixed(ward_name, " ", ""),
-                                false = ward_name),
-         ward_name_v2 = paste(word(ward_name_v2, 1, -2), str_pad(word(ward_name_v2, -1),
+  mutate(ward_name_v2 = paste(word(ward_name_v2, 1, -2), str_pad(word(ward_name_v2, -1),
                                                                  pad = "0", width = 4,
                                                                  side = "left")),
          # additional munges to match VTD style
