@@ -15,69 +15,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -152,10 +89,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-stable-are-ward-boundaries" id="toc-how-stable-are-ward-boundaries" class="nav-link active" data-scroll-target="#how-stable-are-ward-boundaries">How stable are ward boundaries?</a>
+  <ul class="collapse">
+  <li><a href="#where-can-i-get-updated-ward-boundaries" id="toc-where-can-i-get-updated-ward-boundaries" class="nav-link" data-scroll-target="#where-can-i-get-updated-ward-boundaries">Where can I get updated ward boundaries?</a></li>
+  </ul></li>
+  <li><a href="#moving-between-wards-and-reporting-units" id="toc-moving-between-wards-and-reporting-units" class="nav-link" data-scroll-target="#moving-between-wards-and-reporting-units">Moving between wards and reporting units</a>
+  <ul class="collapse">
+  <li><a href="#disaggregating-reporting-units-to-wards" id="toc-disaggregating-reporting-units-to-wards" class="nav-link" data-scroll-target="#disaggregating-reporting-units-to-wards">Disaggregating reporting units to wards</a></li>
+  <li><a href="#aggregating-wards-to-reporting-units" id="toc-aggregating-wards-to-reporting-units" class="nav-link" data-scroll-target="#aggregating-wards-to-reporting-units">Aggregating wards to reporting units</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -173,14 +124,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>About this site</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<div class="page-columns page-full"><p>Wards are the most basic building block of the election system. All land in the state, populated or otherwise, must be assigned to a ward. When preparing to vote, you look up your ward’s polling place. All the other residents of your ward share the same elected officials, so the ballots for everyone living in the ward are identical.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1" role="doc-endnote"><p><sup>1</sup>&nbsp;Sometimes this isn’t true. For instance, a <a href="https://www.jsonline.com/story/news/politics/2023/03/30/it-took-one-milwaukee-woman-three-tries-to-cast-her-ballot-in-election/70061036007/">special election</a> for a Milwaukee Aldermanic seat took place during the Spring 2023 election. The entire Spring election was held under the new wards drawn during the 2021 redistricting cycle. The new Aldermanic districts don’t formally take effect until 2024, so the special election was technically held for the version of the district drawn in 2011. This caused some wards to be split, meaning that people living in the same ward had to receive different ballots based on whether they lived in the 2011 version of the aldermanic district or not. Another exception involves school districts, which are allowed to straddle ward lines.</p></li></div></div>
+<p>In Wisconsin, <strong>official election results are not reported by ward</strong>. Rather, they are officially tabulated by “reporting unit.” Under <a href="https://elections.wi.gov/sites/default/files/legacy/2022-04/Wards-Districts-Reporting%2520Units-Annexations.pdf">specific, but common, conditions</a>, local administrators can combine multiple adjacent wards into a single reporting unit. All the wards in a reporting unit must have identical races on the ballot during that election. Only municipalities with populations below 35,000 are allowed to create multi-ward reporting units. For larger municipalities, each reporting unit is a single ward.</p>
+<p>The Wisconsin Election Commission <a href="https://elections.wi.gov/elections/election-results#accordion-5601">publishes</a> what they call “Ward by Ward Report” files, but this is a misnomer. Really, they are “Reporting unit by Reporting unit” results. The official results look something like this.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Reporting Unit</th>
+<th style="text-align: right;">Biden</th>
+<th style="text-align: right;">Trump</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Village of HOBART Wards 1-8</td>
+<td style="text-align: right;">2428</td>
+<td style="text-align: right;">3269</td>
+</tr>
+<tr class="even">
+<td>Village of HOBART Ward 9</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr class="odd">
+<td>Village of HOWARD Wards 1,12-14</td>
+<td style="text-align: right;">967</td>
+<td style="text-align: right;">1428</td>
+</tr>
+<tr class="even">
+<td>Village of HOWARD Wards 2,9-11,18</td>
+<td style="text-align: right;">1672</td>
+<td style="text-align: right;">2065</td>
+</tr>
+<tr class="odd">
+<td>Village of HOWARD Wards 3-4,6</td>
+<td style="text-align: right;">695</td>
+<td style="text-align: right;">835</td>
+</tr>
+<tr class="even">
+<td>Village of HOWARD Ward 5</td>
+<td style="text-align: right;">167</td>
+<td style="text-align: right;">267</td>
+</tr>
+<tr class="odd">
+<td>Village of HOWARD Ward 7</td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">480</td>
+</tr>
+<tr class="even">
+<td>Village of HOWARD Ward 8</td>
+<td style="text-align: right;">506</td>
+<td style="text-align: right;">674</td>
+</tr>
+<tr class="odd">
+<td>Village of HOWARD Wards 15-16</td>
+<td style="text-align: right;">718</td>
+<td style="text-align: right;">1199</td>
+</tr>
+</tbody>
+</table>
+<section id="how-stable-are-ward-boundaries" class="level1 page-columns page-full">
+<h1>How stable are ward boundaries?</h1>
+<p>Reporting units can change from election to election, often based on which offices are being contested. It’s common for a different set of wards to be combined in nonpartisan spring races than in partisan fall races. Another source of change are alterations to the underlying set of wards.</p>
+<div class="page-columns page-full"><p>The basic ward map is redrawn every decade as part of the redistricting cycle.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> If a municipality’s boundaries remain unchanged, it’s a safe bet that the wards also remain the same throughout the decade.</p><div class="no-row-height column-margin column-container"><li id="fn2" role="doc-endnote"><p><sup>2</sup>&nbsp;In Wisconsin, <a href="https://legis.wisconsin.gov/LTSB/local-redistricting/">local redistricting</a> occurs before state redistricting. First, county clerks draw tentative supervisory districts. Then, municipal officials draw their ward plans. Theoretically, the state is supposed to draw their legislative districts using these municipal-defined wards as their building blocks. However, in the last two cycles (2011 and 2021), politicians disregarded the municipal wards and drew their own maps from census blocks. This probably facilitates partisan gerrymandering, and it certainly makes life more difficult for elections administrators who are forced to redraw their wards.</p></li></div></div>
+<div class="page-columns page-full"><p>However, municipal boundaries change constantly in Wisconsin, mostly due to annexations. State records show 164 annexations during 2022, 44 of which involved populated areas. Regardless of whether the annexed area included any residents, each of these annexations necessitates changes to the existing ward maps. The losing municipality either loses (an) entire ward(s) or shrinks the size of existing wards. The gaining municipality can add the annexed territory to an existing, contiguous ward if all the political districts are the same. If the political districts are different, then the newly annexed territory becomes an entirely new ward. <a href="https://elections.wi.gov/sites/default/files/legacy/2022-04/Wards-Districts-Reporting%2520Units-Annexations.pdf">See here</a> for more details.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn3" role="doc-endnote"><p><sup>3</sup>&nbsp;Another change can occur during municipal incorporations, at least a few of which <a href="https://mds.wi.gov/View/Incorporations">typically occur</a> in a decade. When an individual town incorporates as a village, they will likely leave each ward intact. Only the name will change from, e.g., “Town of Lisbon Ward 1” to “Village of Lisbon Ward 1.”</p></li></div></div>
+<section id="where-can-i-get-updated-ward-boundaries" class="level2">
+<h2 class="anchored" data-anchor-id="where-can-i-get-updated-ward-boundaries">Where can I get updated ward boundaries?</h2>
+<p>The Wisconsin <a href="https://data-ltsb.opendata.arcgis.com/">Legislative Technology Services Bureau</a> (LTSB) collects updated municipal and ward boundary information from local governments twice a years, in January and July. Unfortunately, these dates do not exactly correspond with elections, which generally occur in January, April, August, and November. It’s not uncommon for wards to be referenced in the names of reporting units which do not exist in the most recent vintage of the LTSB ward GIS file.</p>
+<p>If you’re trying to find ward polygons right after an election, I recommend starting with the most recent LTSB file. If you identify inconsistencies between the list of wards referenced in the reporting unit names and the actual wards existing in the LTSB file, your best option is to visit the problem county’s “Land Information Office.” Literally, google “[COUNTY NAME] LAND INFORMATION OFFICE.” Sometimes, the updated ward boundary file will be available to download off the county LIO website. If not, try emailing or calling the office and asking for “a GIS file containing the ward boundaries used in the [MONTH YEAR] election.”</p>
+</section>
+</section>
+<section id="moving-between-wards-and-reporting-units" class="level1 page-columns page-full">
+<h1>Moving between wards and reporting units</h1>
+<div class="page-columns page-full"><p>Pretty much any elections analysis requires converting between wards and reporting units because vote totals are in reporting units but most other data sources are available for wards.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4" role="doc-endnote"><p><sup>4</sup>&nbsp;Election results from big cities like Milwaukee are easier, because their reporting units are always a single ward, so this conversion step is already complete.</p></li></div></div>
+<p>It’s possible to move in both directions: <strong>aggregating</strong> wards into reporting units <em>or</em> <strong>disaggregating</strong> reporting units into wards. Each approach has pros and cons.</p>
+<section id="disaggregating-reporting-units-to-wards" class="level2">
+<h2 class="anchored" data-anchor-id="disaggregating-reporting-units-to-wards">Disaggregating reporting units to wards</h2>
+<p>The LTSB disaggregates the reporting unit results of each partisan election into individual wards using a methodology described in <a href="https://data-ltsb.opendata.arcgis.com/datasets/LTSB::2022-election-data-with-2022-wards-1/about">detail here</a>. Basically, they rely on their most recent ward layer and use census-derived population estimates to come up with disaggregation factors. They also use sensible workarounds for edge cases that occur when the wards referenced by an election’s reporting units are inconsistent with the wards in their latest statewide file.</p>
+<p>The LTSB also uses a <a href="https://data-ltsb.opendata.arcgis.com/datasets/LTSB::2012-2020-election-data-with-2020-wards/about">similar methodology</a> to disaggregate <em>prior</em> election results with different ward boundaries into the current ward boundary map. This methodology has great advantages for researchers who need consistent units of analysis across time.</p>
+<p>A disadvantage to disaggregated wards is that the information presented is not literally accurate. It should be close enough for statistical analysis purposes, but sometimes the researcher’s primary interest is actually presenting the official, legal election results.</p>
+</section>
+<section id="aggregating-wards-to-reporting-units" class="level2">
+<h2 class="anchored" data-anchor-id="aggregating-wards-to-reporting-units">Aggregating wards to reporting units</h2>
+<p>Especially given the increasingly fraught public rhetoric around election integrity, I sometimes find it preferable to present the official election data as accurately as possible. In certain kinds of research projects, it may also aid overall accuracy to use wholly accurate, non-disaggregated election returns.</p>
 
+
+</section>
+</section>
 
 
 </main> <!-- /main -->

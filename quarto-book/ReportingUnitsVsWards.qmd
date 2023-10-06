@@ -1,9 +1,58 @@
 ---
 title: "Reporting Units vs. Wards"
+reference-location: margin
+citation-location: margin
 ---
 
-About this site
+Wards are the most basic building block of the election system. All land in the state, populated or otherwise, must be assigned to a ward. When preparing to vote, you look up your ward's polling place. All the other residents of your ward share the same elected officials, so the ballots for everyone living in the ward are identical.^[Sometimes this isn't true. For instance, a [special election](https://www.jsonline.com/story/news/politics/2023/03/30/it-took-one-milwaukee-woman-three-tries-to-cast-her-ballot-in-election/70061036007/) for a Milwaukee Aldermanic seat took place during the Spring 2023 election. The entire Spring election was held under the new wards drawn during the 2021 redistricting cycle. The new Aldermanic districts don't formally take effect until 2024, so the special election was technically held for the version of the district drawn in 2011. This caused some wards to be split, meaning that people living in the same ward had to receive different ballots based on whether they lived in the 2011 version of the aldermanic district or not. Another exception involves school districts, which are allowed to straddle ward lines.]
 
-```{r}
-1 + 1
-```
+In Wisconsin, **official election results are not reported by ward**. Rather, they are officially tabulated by "reporting unit." Under [specific, but common, conditions](https://elections.wi.gov/sites/default/files/legacy/2022-04/Wards-Districts-Reporting%2520Units-Annexations.pdf), local administrators can combine multiple adjacent wards into a single reporting unit. All the wards in a reporting unit must have identical races on the ballot during that election. Only municipalities with populations below 35,000 are allowed to create multi-ward reporting units. For larger municipalities, each reporting unit is a single ward.
+
+The Wisconsin Election Commission [publishes](https://elections.wi.gov/elections/election-results#accordion-5601) what they call "Ward by Ward Report" files, but this is a misnomer. Really, they are "Reporting unit by Reporting unit" results. The official results look something like this.
+
+
+Reporting Unit                    |   Biden|	Trump|
+----------------------------------|-------:|------:|
+Village of HOBART Wards 1-8       |	  2428  |   3269|
+Village of HOBART Ward 9          |	  72    |   45  |
+Village of HOWARD Wards 1,12-14   |	  967   |   1428|
+Village of HOWARD Wards 2,9-11,18 |	  1672  |   2065|
+Village of HOWARD Wards 3-4,6     |	  695   |	  835 |
+Village of HOWARD Ward 5	        |   167   |	  267 |
+Village of HOWARD Ward 7	        |   343   |	  480 |
+Village of HOWARD Ward 8        	|   506   |   674 |
+Village of HOWARD Wards 15-16     |   718   |	  1199|
+
+# How stable are ward boundaries?
+
+Reporting units can change from election to election, often based on which offices are being contested. It's common for a different set of wards to be combined in nonpartisan spring races than in partisan fall races. Another source of change are alterations to the underlying set of wards.
+
+The basic ward map is redrawn every decade as part of the redistricting cycle.^[In Wisconsin, [local redistricting](https://legis.wisconsin.gov/LTSB/local-redistricting/) occurs before state redistricting. First, county clerks draw tentative supervisory districts. Then, municipal officials draw their ward plans. Theoretically, the state is supposed to draw their legislative districts using these municipal-defined wards as their building blocks. However, in the last two cycles (2011 and 2021), politicians disregarded the municipal wards and drew their own maps from census blocks. This probably facilitates partisan gerrymandering, and it certainly makes life more difficult for elections administrators who are forced to redraw their wards.] If a municipality's boundaries remain unchanged, it's a safe bet that the wards also remain the same throughout the decade.
+
+However, municipal boundaries change constantly in Wisconsin, mostly due to annexations. State records show 164 annexations during 2022, 44 of which involved populated areas. Regardless of whether the annexed area included any residents, each of these annexations necessitates changes to the existing ward maps. The losing municipality either loses (an) entire ward(s) or shrinks the size of existing wards. The gaining municipality can add the annexed territory to an existing, contiguous ward if all the political districts are the same. If the political districts are different, then the newly annexed territory becomes an entirely new ward. [See here](https://elections.wi.gov/sites/default/files/legacy/2022-04/Wards-Districts-Reporting%2520Units-Annexations.pdf) for more details.^[Another change can occur during municipal incorporations, at least a few of which [typically occur](https://mds.wi.gov/View/Incorporations) in a decade. When an individual town incorporates as a village, they will likely leave each ward intact. Only the name will change from, e.g., "Town of Lisbon Ward 1" to "Village of Lisbon Ward 1."]
+
+## Where can I get updated ward boundaries?
+
+The Wisconsin [Legislative Technology Services Bureau](https://data-ltsb.opendata.arcgis.com/) (LTSB) collects updated municipal and ward boundary information from local governments twice a years, in January and July. Unfortunately, these dates do not exactly correspond with elections, which generally occur in January, April, August, and November. It's not uncommon for wards to be referenced in the names of reporting units which do not exist in the most recent vintage of the LTSB ward GIS file.
+
+If you're trying to find ward polygons right after an election, I recommend starting with the most recent LTSB file. If you identify inconsistencies between the list of wards referenced in the reporting unit names and the actual wards existing in the LTSB file, your best option is to visit the problem county's "Land Information Office." Literally, google "[COUNTY NAME] LAND INFORMATION OFFICE." Sometimes, the updated ward boundary file will be available to download off the county LIO website. If not, try emailing or calling the office and asking for "a GIS file containing the ward boundaries used in the [MONTH YEAR] election."
+
+# Moving between wards and reporting units
+
+Pretty much any elections analysis requires converting between wards and reporting units because vote totals are in reporting units but most other data sources are available for wards.^[Election results from big cities like Milwaukee are easier, because their reporting units are always a single ward, so this conversion step is already complete.]
+
+It's possible to move in both directions: **aggregating** wards into reporting units *or* **disaggregating** reporting units into wards. Each approach has pros and cons.
+
+## Disaggregating reporting units to wards
+
+The LTSB disaggregates the reporting unit results of each partisan election into individual wards using a methodology described in [detail here](https://data-ltsb.opendata.arcgis.com/datasets/LTSB::2022-election-data-with-2022-wards-1/about). Basically, they rely on their most recent ward layer and use census-derived population estimates to come up with disaggregation factors. They also use sensible workarounds for edge cases that occur when the wards referenced by an election's reporting units are inconsistent with the wards in their latest statewide file.
+
+The LTSB also uses a [similar methodology](https://data-ltsb.opendata.arcgis.com/datasets/LTSB::2012-2020-election-data-with-2020-wards/about) to disaggregate *prior* election results with different ward boundaries into the current ward boundary map. This methodology has great advantages for researchers who need consistent units of analysis across time.
+
+A disadvantage to disaggregated wards is that the information presented is not literally accurate. It should be close enough for statistical analysis purposes, but sometimes the researcher's primary interest is actually presenting the official, legal election results.
+
+## Aggregating wards to reporting units
+
+Especially given the increasingly fraught public rhetoric around election integrity, I sometimes find it preferable to present the official election data as accurately as possible. In certain kinds of research projects, it may also aid overall accuracy to use wholly accurate, non-disaggregated election returns.
+
+
