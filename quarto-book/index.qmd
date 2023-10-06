@@ -1,0 +1,9 @@
+---
+title: "Introduction"
+---
+
+Spend time reading the news or on social media and you'll likely comeacross ward maps of election results, statistics about voter turnout, or statements about how different groups of people have voted. Trace those maps or statistics back to theri source and you might find anything from a government report to an obsessed teen on [Election Twitter](https://www.ft.com/content/01b6a0e0-a7a5-499e-a807-c6d3e042aa1d). In either case, statistics that appear simple are often complicated to produce. The process of distilling raw election returns into summary statistics or maps often requires a series of judgment calls that go unremarked.
+
+In America, elections are mostly administred by local governments with varying degrees of standardization enforced by the state and federal governments. In a state like wisconsin, analyzing election results requires combining data across a variety of sources. This document is an explanation and tutorial on how to do that.
+
+Follow along in the [associated Github repository](https://github.com/jdjohn215/wis-election-units/) for data and code.

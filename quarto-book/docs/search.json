@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "In America, elections are mostly administred by local governments with varying degrees of standardization enforced by the state and federal governments. In a state like wisconsin, analyzing election results requires combining data across a variety of sources. This document is an explanation and tutorial on how to do that.\nFollow along in the associated Github repository for data and code."
+  },
+  {
+    "objectID": "ReportingUnitsVsWards.html",
+    "href": "ReportingUnitsVsWards.html",
+    "title": "Reporting Units vs. Wards",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  }
+]
