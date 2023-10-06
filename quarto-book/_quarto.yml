@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: "docs"
 
 website:
   title: "Empirical guide to analyzing Wisconsin Election Data"
