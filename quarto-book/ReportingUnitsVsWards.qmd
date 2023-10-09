@@ -1,4 +1,8 @@
 ---
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 title: "Reporting Units vs. Wards"
 reference-location: margin
 citation-location: margin
@@ -53,6 +57,123 @@ A disadvantage to disaggregated wards is that the information presented is not l
 
 ## Aggregating wards to reporting units
 
-Especially given the increasingly fraught public rhetoric around election integrity, I sometimes find it preferable to present the official election data as accurately as possible. In certain kinds of research projects, it may also aid overall accuracy to use wholly accurate, non-disaggregated election returns.
+Especially given the increasingly fraught public rhetoric around election integrity, I often find it preferable to present the official election data as accurately as possible. In certain kinds of research projects, it may also aid overall accuracy to use wholly accurate, non-disaggregated election returns.
 
+To create reporting unit shapefiles, follow these steps:
+
+  * Select the ward GIS file from the time period closest to the election you want to map.
+  * Identify the individual wards which make up each reporting unit.
+  * Match those wards to the GIS file, keeping the reporting unit name as an additional field.
+  * Group by the reporting unit name, and dissolve the constituent ward polygons into a larger reporting unit polygon.
+
+Here is an example, using Milwaukee County data from the 2020 presidential election.
+
+```{r, include=FALSE}
+library(tidyverse)
+library(sf)
+
+pres20 <- readxl::read_excel(here::here("election-data/President_2020_ReportingUnits_AfterRecount.xlsx")) %>%
+  janitor::clean_names() %>%
+  mutate(total = rowSums(.[7:19]),
+         county_fips = "55079") %>%
+  filter(county_name == "MILWAUKEE") %>%
+  select(county_fips, reporting_unit, total, biden = joseph_r_biden_kamala_d_harris,
+         trump = donald_j_trump_michael_r_pence)
+ward.shp.2020 <- tibble(st_read(here::here("data/ward-shp/Milwaukeecounty_2011.geojson"))) %>%
+  mutate(ward_name = case_when(
+           ward_name == "Bayside - V 1B" ~ "Bayside - V 1S",
+           ward_name == "Bayside - V 3B" ~ "Bayside - V 3S",
+           ward_name == "Glendale - C 8E" ~ "Glendale - C 11S",
+           ward_name == "Glendale - C 11E" ~ "Glendale - C 8S",
+           TRUE ~ ward_name))
+```
+
+The official election results look like this.
+
+```{r}
+pres20
+```
+
+The wards look like this
+```{r}
+ward.shp.2020
+```
+
+The next step is to extract the individual wards from each reporting unit. First, separate the main elements of the `reporting_unit` string, like so:
+
+```{r}
+reporting.units <- pres20 %>%
+  select(reporting_unit) %>%
+  separate(reporting_unit, into = c("municipality", "wards"), 
+           sep = " Wards | Ward ", remove = F) %>%
+  separate(municipality, into = c("ctv", "muni"), sep = " of ") %>%
+  mutate(ctv = str_sub(ctv, 1, 1))
+
+reporting.units
+```
+
+Next, convert the `wards` field into a simple comma-separated list of wards. I've written a helper function which uses regular expressions to convert hyphentated ranges into lists of numbers.
+
+```{r}
+# expand a list of numbers including dashes into full list
+expand_dash <- function(wardstring){
+  wardstring.elements <- unlist(str_split(wardstring, ","))
+  wardstring.list <- lapply(
+    X = wardstring.elements,
+    FUN = function(text){
+      if(str_detect(text, "-")){
+        limits <- as.numeric(unlist(strsplit(text, '-')))
+        paste(seq(limits[1], limits[2]), collapse = ", ")
+      } else {
+        text
+      }
+    }
+  )
+  str_remove_all(paste(wardstring.list, collapse = ","), " ")
+}
+
+reporting.units.2 <- reporting.units %>%
+  rowwise() %>%
+  mutate(wards = expand_dash(wards)) %>%
+  ungroup()
+reporting.units.2
+```
+
+Next, convert this table to long format, so that each row represents a single ward *within* a reporting unit. I also create a `ward_name` variable which matches the format used by the `ward_name` variable in the GIS file.
+
+```{r}
+wards.in.reporting.units <- reporting.units.2 %>%
+  separate(col = wards, into = c("w1","w2","w3","w4","w5"), sep = ",", fill = "right") %>%
+  pivot_longer(cols = starts_with("w"), names_to = "wardcount", values_to = "ward") %>%
+  filter(!is.na(ward)) %>%
+  select(-wardcount) %>%
+  mutate(ward_name = paste(str_to_title(muni), "-", ctv, ward))
+# nrow(ward.shp.2020) == nrow(wards.in.reporting.units)
+# table(ward.shp.2020$ward_name %in% wards.in.reporting.units$ward_name)
+wards.in.reporting.units
+```
+
+The both the original ward GIS file and the wards retrieved from reporting units show 570 named wards in Milwaukee County. Moreover, the names from each `ward_name` column match each other exactly.
+
+I join the two files, group by the `reporting_unit` variable, and summarize, combining the individual ward polygons using `sf::st_union()`.
+
+```{r}
+reporting.unit.shp.2020 <- ward.shp.2020 %>%
+  inner_join(wards.in.reporting.units) %>%
+  group_by(reporting_unit) %>%
+  summarise(geometry = st_union(geometry))
+reporting.unit.shp.2020
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Ward polygons, 2020"
+#|   - "Reporting unit polygons, 2020 presidential election"
+#| fig-width: 15
+#| fig-height: 15
+
+plot(ward.shp.2020$geometry)
+plot(reporting.unit.shp.2020$geometry)
+```
 

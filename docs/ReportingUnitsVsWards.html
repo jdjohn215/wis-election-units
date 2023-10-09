@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -77,6 +140,9 @@ ul.task-list{list-style: none;}
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./ReportingUnitsVsWards.html" aria-current="page">Reporting Units vs.&nbsp;Wards</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./RegisteredVoters.html">Registered Voters</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -206,7 +272,227 @@ ul.task-list{list-style: none;}
 </section>
 <section id="aggregating-wards-to-reporting-units" class="level2">
 <h2 class="anchored" data-anchor-id="aggregating-wards-to-reporting-units">Aggregating wards to reporting units</h2>
-<p>Especially given the increasingly fraught public rhetoric around election integrity, I sometimes find it preferable to present the official election data as accurately as possible. In certain kinds of research projects, it may also aid overall accuracy to use wholly accurate, non-disaggregated election returns.</p>
+<p>Especially given the increasingly fraught public rhetoric around election integrity, I often find it preferable to present the official election data as accurately as possible. In certain kinds of research projects, it may also aid overall accuracy to use wholly accurate, non-disaggregated election returns.</p>
+<p>To create reporting unit shapefiles, follow these steps:</p>
+<ul>
+<li>Select the ward GIS file from the time period closest to the election you want to map.</li>
+<li>Identify the individual wards which make up each reporting unit.</li>
+<li>Match those wards to the GIS file, keeping the reporting unit name as an additional field.</li>
+<li>Group by the reporting unit name, and dissolve the constituent ward polygons into a larger reporting unit polygon.</li>
+</ul>
+<p>Here is an example, using Milwaukee County data from the 2020 presidential election.</p>
+<p>The official election results look like this.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pres20</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 476 × 5
+   county_fips reporting_unit                  total biden trump
+   &lt;chr&gt;       &lt;chr&gt;                           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 55079       Village of BAYSIDE Wards 1,3     1049   719   323
+ 2 55079       Village of BAYSIDE Wards 1S,3S     71    47    24
+ 3 55079       Village of BAYSIDE Wards 2,4     1253   910   327
+ 4 55079       Village of BAYSIDE Ward 5         706   508   192
+ 5 55079       Village of BROWN DEER Wards 1-2  2494  1892   553
+ 6 55079       Village of BROWN DEER Wards 3-4  2489  1683   771
+ 7 55079       Village of BROWN DEER Wards 5-6  2480  1750   686
+ 8 55079       Village of FOX POINT Wards 1-4   2202  1533   641
+ 9 55079       Village of FOX POINT Wards 5-9   2790  1959   788
+10 55079       Village of GREENDALE Wards 1-2   1765   824   916
+# … with 466 more rows</code></pre>
+</div>
+</div>
+<p>The wards look like this</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ward.shp<span class="fl">.2020</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 570 × 3
+   county_fips ward_name                                                geometry
+   &lt;chr&gt;       &lt;chr&gt;                                          &lt;MULTIPOLYGON [°]&gt;
+ 1 55079       Bayside - V 1    (((-87.90525 43.17631, -87.90575 43.17631, -87.…
+ 2 55079       Bayside - V 1S   (((-87.90774 43.17631, -87.90808 43.17631, -87.…
+ 3 55079       Bayside - V 2    (((-87.90501 43.18393, -87.90482 43.18392, -87.…
+ 4 55079       Bayside - V 3    (((-87.91764 43.1921, -87.91694 43.19213, -87.9…
+ 5 55079       Bayside - V 3S   (((-87.92205 43.19104, -87.9222 43.19104, -87.9…
+ 6 55079       Bayside - V 4    (((-87.89894 43.1922, -87.89815 43.19217, -87.8…
+ 7 55079       Bayside - V 5    (((-87.90113 43.17482, -87.90125 43.1751, -87.9…
+ 8 55079       Brown Deer - V 1 (((-87.95951 43.18644, -87.95919 43.1862, -87.9…
+ 9 55079       Brown Deer - V 2 (((-87.98452 43.17997, -87.98452 43.18014, -87.…
+10 55079       Brown Deer - V 3 (((-87.99448 43.17787, -87.99448 43.17837, -87.…
+# … with 560 more rows</code></pre>
+</div>
+</div>
+<p>The next step is to extract the individual wards from each reporting unit. First, separate the main elements of the <code>reporting_unit</code> string, like so:</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reporting.units <span class="ot">&lt;-</span> pres20 <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(reporting_unit) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(reporting_unit, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"municipality"</span>, <span class="st">"wards"</span>), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">sep =</span> <span class="st">" Wards | Ward "</span>, <span class="at">remove =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(municipality, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"ctv"</span>, <span class="st">"muni"</span>), <span class="at">sep =</span> <span class="st">" of "</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ctv =</span> <span class="fu">str_sub</span>(ctv, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>reporting.units</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 476 × 4
+   reporting_unit                  ctv   muni       wards
+   &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;
+ 1 Village of BAYSIDE Wards 1,3    V     BAYSIDE    1,3  
+ 2 Village of BAYSIDE Wards 1S,3S  V     BAYSIDE    1S,3S
+ 3 Village of BAYSIDE Wards 2,4    V     BAYSIDE    2,4  
+ 4 Village of BAYSIDE Ward 5       V     BAYSIDE    5    
+ 5 Village of BROWN DEER Wards 1-2 V     BROWN DEER 1-2  
+ 6 Village of BROWN DEER Wards 3-4 V     BROWN DEER 3-4  
+ 7 Village of BROWN DEER Wards 5-6 V     BROWN DEER 5-6  
+ 8 Village of FOX POINT Wards 1-4  V     FOX POINT  1-4  
+ 9 Village of FOX POINT Wards 5-9  V     FOX POINT  5-9  
+10 Village of GREENDALE Wards 1-2  V     GREENDALE  1-2  
+# … with 466 more rows</code></pre>
+</div>
+</div>
+<p>Next, convert the <code>wards</code> field into a simple comma-separated list of wards. I’ve written a helper function which uses regular expressions to convert hyphentated ranges into lists of numbers.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># expand a list of numbers including dashes into full list</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>expand_dash <span class="ot">&lt;-</span> <span class="cf">function</span>(wardstring){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  wardstring.elements <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">str_split</span>(wardstring, <span class="st">","</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  wardstring.list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">X =</span> wardstring.elements,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> <span class="cf">function</span>(text){</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">str_detect</span>(text, <span class="st">"-"</span>)){</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        limits <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(text, <span class="st">'-'</span>)))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(<span class="fu">seq</span>(limits[<span class="dv">1</span>], limits[<span class="dv">2</span>]), <span class="at">collapse =</span> <span class="st">", "</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        text</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_remove_all</span>(<span class="fu">paste</span>(wardstring.list, <span class="at">collapse =</span> <span class="st">","</span>), <span class="st">" "</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>reporting.units<span class="fl">.2</span> <span class="ot">&lt;-</span> reporting.units <span class="sc">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wards =</span> <span class="fu">expand_dash</span>(wards)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>reporting.units<span class="fl">.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 476 × 4
+   reporting_unit                  ctv   muni       wards    
+   &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    
+ 1 Village of BAYSIDE Wards 1,3    V     BAYSIDE    1,3      
+ 2 Village of BAYSIDE Wards 1S,3S  V     BAYSIDE    1S,3S    
+ 3 Village of BAYSIDE Wards 2,4    V     BAYSIDE    2,4      
+ 4 Village of BAYSIDE Ward 5       V     BAYSIDE    5        
+ 5 Village of BROWN DEER Wards 1-2 V     BROWN DEER 1,2      
+ 6 Village of BROWN DEER Wards 3-4 V     BROWN DEER 3,4      
+ 7 Village of BROWN DEER Wards 5-6 V     BROWN DEER 5,6      
+ 8 Village of FOX POINT Wards 1-4  V     FOX POINT  1,2,3,4  
+ 9 Village of FOX POINT Wards 5-9  V     FOX POINT  5,6,7,8,9
+10 Village of GREENDALE Wards 1-2  V     GREENDALE  1,2      
+# … with 466 more rows</code></pre>
+</div>
+</div>
+<p>Next, convert this table to long format, so that each row represents a single ward <em>within</em> a reporting unit. I also create a <code>ward_name</code> variable which matches the format used by the <code>ward_name</code> variable in the GIS file.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wards.in.reporting.units <span class="ot">&lt;-</span> reporting.units<span class="fl">.2</span> <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> wards, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"w1"</span>,<span class="st">"w2"</span>,<span class="st">"w3"</span>,<span class="st">"w4"</span>,<span class="st">"w5"</span>), <span class="at">sep =</span> <span class="st">","</span>, <span class="at">fill =</span> <span class="st">"right"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"w"</span>), <span class="at">names_to =</span> <span class="st">"wardcount"</span>, <span class="at">values_to =</span> <span class="st">"ward"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ward)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wardcount) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ward_name =</span> <span class="fu">paste</span>(<span class="fu">str_to_title</span>(muni), <span class="st">"-"</span>, ctv, ward))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># nrow(ward.shp.2020) == nrow(wards.in.reporting.units)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># table(ward.shp.2020$ward_name %in% wards.in.reporting.units$ward_name)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>wards.in.reporting.units</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 570 × 5
+   reporting_unit                  ctv   muni       ward  ward_name       
+   &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;           
+ 1 Village of BAYSIDE Wards 1,3    V     BAYSIDE    1     Bayside - V 1   
+ 2 Village of BAYSIDE Wards 1,3    V     BAYSIDE    3     Bayside - V 3   
+ 3 Village of BAYSIDE Wards 1S,3S  V     BAYSIDE    1S    Bayside - V 1S  
+ 4 Village of BAYSIDE Wards 1S,3S  V     BAYSIDE    3S    Bayside - V 3S  
+ 5 Village of BAYSIDE Wards 2,4    V     BAYSIDE    2     Bayside - V 2   
+ 6 Village of BAYSIDE Wards 2,4    V     BAYSIDE    4     Bayside - V 4   
+ 7 Village of BAYSIDE Ward 5       V     BAYSIDE    5     Bayside - V 5   
+ 8 Village of BROWN DEER Wards 1-2 V     BROWN DEER 1     Brown Deer - V 1
+ 9 Village of BROWN DEER Wards 1-2 V     BROWN DEER 2     Brown Deer - V 2
+10 Village of BROWN DEER Wards 3-4 V     BROWN DEER 3     Brown Deer - V 3
+# … with 560 more rows</code></pre>
+</div>
+</div>
+<p>The both the original ward GIS file and the wards retrieved from reporting units show 570 named wards in Milwaukee County. Moreover, the names from each <code>ward_name</code> column match each other exactly.</p>
+<p>I join the two files, group by the <code>reporting_unit</code> variable, and summarize, combining the individual ward polygons using <code>sf::st_union()</code>.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>reporting.unit.shp<span class="fl">.2020</span> <span class="ot">&lt;-</span> ward.shp<span class="fl">.2020</span> <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(wards.in.reporting.units) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(reporting_unit) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">geometry =</span> <span class="fu">st_union</span>(geometry))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(ward_name)`</code></pre>
+</div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>reporting.unit.shp<span class="fl">.2020</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 476 × 2
+   reporting_unit                                                       geometry
+   &lt;chr&gt;                                                           &lt;POLYGON [°]&gt;
+ 1 City of CUDAHY Wards 1-3   ((-87.85958 42.95913, -87.8581 42.95914, -87.8576…
+ 2 City of CUDAHY Wards 10-12 ((-87.86847 42.93365, -87.86806 42.93366, -87.867…
+ 3 City of CUDAHY Wards 13-15 ((-87.86349 42.93008, -87.86341 42.93008, -87.863…
+ 4 City of CUDAHY Wards 4-6   ((-87.84925 42.95104, -87.84816 42.95105, -87.846…
+ 5 City of CUDAHY Wards 7-9   ((-87.86534 42.94457, -87.86506 42.94457, -87.864…
+ 6 City of FRANKLIN Ward 1    ((-88.00984 42.88712, -88.00985 42.88687, -88.009…
+ 7 City of FRANKLIN Ward 10   ((-87.96153 42.92292, -87.96181 42.92299, -87.962…
+ 8 City of FRANKLIN Ward 11   ((-87.96004 42.91043, -87.96001 42.9113, -87.96 4…
+ 9 City of FRANKLIN Ward 12   ((-87.95063 42.89454, -87.95058 42.89598, -87.950…
+10 City of FRANKLIN Ward 13   ((-87.99709 42.90148, -87.99776 42.90148, -87.997…
+# … with 466 more rows</code></pre>
+</div>
+</div>
+<div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ward.shp<span class="fl">.2020</span><span class="sc">$</span>geometry)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reporting.unit.shp<span class="fl">.2020</span><span class="sc">$</span>geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ReportingUnitsVsWards_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="1440"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Ward polygons, 2020</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ReportingUnitsVsWards_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="1440"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Reporting unit polygons, 2020 presidential election</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
