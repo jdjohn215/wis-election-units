@@ -1,0 +1,151 @@
+---
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+title: "Combining Demographic & Election data"
+reference-location: margin
+citation-location: margin
+---
+
+```{r, include=FALSE}
+library(tidyverse)
+library(gt)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+
+orig.wec <- read_csv(here::here("election-data/OriginalWEC_Pres-GOV_2012-2022_ReportingUnits.csv"))
+```
+
+Once we have demographic statistics *and* election statistics for the same geographic level, we can combine them to run various analyses.
+
+Here is a simple example, calculating the relative performance of the Democratic candidate in gubernatorial and presidential election in City of Milwaukee wards. I present the results separately for wards where the majority of adults are Black, non-Hispanic white, Hispanic or Latino, etc.
+
+# Retrieve election results
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(gt)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+
+orig.wec <- read_csv(here::here("election-data/OriginalWEC_Pres-GOV_2012-2022_ReportingUnits.csv"))
+```
+
+The elections file contains the official election results for each reporting unit in each election year. My analysis is limited to just the City of Milwaukee, where each reporting unit is one ward and wards stayed the same from 2012-2020. Their boundaries then changed to accomodate redistricting in 2022.
+
+See the file `election-data/official-wec/CombineFiles.R` for a demonstration of how to clean and combine official WEC ward returns.
+
+```{r}
+# subset city of milwaukee wards
+mke.ward.votes <- orig.wec %>%
+  filter(county == "MILWAUKEE",
+         str_detect(rep_unit, "CITY OF MILWAUKEE")) %>%
+  mutate(ward = as.numeric(word(rep_unit, -1))) %>%
+  select(ward, year, office, total, rep, dem)
+mke.ward.votes
+```
+
+# Retrieve ward demographics
+
+Next, I retrieve the ward statistics for voting age population by race/ethnicity. See the chapter on "Ward Demographics" for details about calculating this. There are two Milwaukee ward demographic files, one containing statistics for the 2011 ward vintage, and the other containing the 2022 ward vintage.
+
+I combine the two into a single dataframe in long format. There is 1 row for each unique combination of ward, year, and demographic group. The following abbreviations are used:
+
+* vap = voting age population
+* aian = Alaska Native or Pacific Islander (non-Hispanic)
+* asian = Asian (non-Hispanic)
+* black = Black or African American (non-Hispanic)
+* hisp = Hispanic or Latino (any race)
+* white = white (non-Hispanic)
+* other = other (non-Hispanic)
+* two = 2 or more race (non-Hispanic)
+
+```{r}
+# city of milwaukee ward demographics, wards used from 2012-2020
+mke.2011ward.demographics <- read_csv(here::here("data/ward-demographics/Wards2011_VAP_2010to2020.csv")) %>%
+  filter(str_detect(ward_2011, "^Milwaukee - C")) %>%
+  pivot_longer(cols = -c(1:2), names_to = "year", values_to = "count") %>%
+  mutate(year = as.numeric(str_sub(year, -4, -1)),
+         ward = as.numeric(word(ward_2011, -1))) %>%
+  select(ward, year, group, count) %>%
+  group_by(ward, year) %>%
+  mutate(pct = (count/count[group == "vap"])*100) %>%
+  ungroup()
+
+# city of milwaukee ward demographics, wards used from 2022-
+mke.2022ward.demographics <- read_csv(here::here("data/ward-demographics/Wards2022_VAP_2020.csv")) %>%
+  filter(str_detect(ward_2022, "^Milwaukee - C")) %>%
+  # set year to 2022, as this is the election year these wards apply to
+  mutate(year = 2022,
+         ward = as.numeric(word(ward_2022, -1))) %>%
+  rename(count = count_2020) %>%
+  select(ward, year, group, count) %>%
+  group_by(ward, year) %>%
+  mutate(pct = (count/count[group == "vap"])*100) %>%
+  ungroup()
+
+mke.combined.ward.demographics <- bind_rows(mke.2011ward.demographics,
+                                            mke.2022ward.demographics) %>%
+  arrange(ward, year, group)
+mke.combined.ward.demographics
+```
+
+# calculate ward majority group
+
+I then determine which group, if any, makes up at outright majority of the ward's voting age population in that year.
+
+```{r}
+mke.ward.majority <- mke.combined.ward.demographics %>%
+  filter(group != "vap") %>%
+  group_by(year, ward) %>%
+  slice_max(order_by = count, n = 1, with_ties = F) %>%
+  ungroup() %>%
+  mutate(vap_majority = if_else(pct > 50,
+                                true = word(group, -1, sep = "_"),
+                                false = "no majority")) %>%
+  select(ward, year, vap_majority)
+mke.ward.majority
+```
+
+# aggregate election results by ward majority group
+
+Then, I merge the ward majority dataframe with the election results dataframe, and aggregate the votes by majority group.
+
+```{r}
+mke.ward.majority.totals <- mke.ward.votes %>%
+  inner_join(mke.ward.majority) %>%
+  group_by(year, office, vap_majority) %>%
+  summarise(wards = n(),
+            across(.cols = where(is.numeric), .fns = sum)) %>%
+  ungroup() %>%
+  mutate(dem_pct_2pty = (dem/(rep + dem))*100) %>%
+  filter(total > 0)
+mke.ward.majority.totals
+```
+
+Finally, I use the {{gt}} package to create a nicely formatted table of results.
+
+```{r}
+#| column: page
+mke.ward.majority.totals %>%
+  mutate(office_year = paste(year, office)) %>%
+  select(office_year, vap_majority, wards, dem_share = dem_pct_2pty) %>%
+  pivot_wider(names_from = vap_majority, values_from = c(dem_share, wards),
+              names_glue = "{vap_majority}:{.value}") %>%
+  select(office_year, starts_with("black"), starts_with("white"), starts_with("hisp"),
+         starts_with("no majority"), starts_with("asian")) %>%
+  gt(rowname_col = "office_year") %>%
+  tab_spanner_delim(":") %>%
+  fmt_percent(columns = contains("dem_share"), decimals = 0, scale = F) %>%
+  data_color(columns = contains("dem_share"), 
+             domain = c(min(mke.ward.majority.totals$dem_pct_2pty),
+                        max(mke.ward.majority.totals$dem_pct_2pty)),
+             palette = "Blues") %>%
+  tab_header(title = "Election results in City of Milwaukee wards",
+             subtitle = "by the racial/ethnic majority group of adults in each ward") %>%
+  tab_footnote("Democratic candidate's share of the two-party vote",
+               locations = cells_column_labels(contains("dem_share"))) %>%
+  tab_footnote("2012-2018 ward population statistics are linearly interpolated using 2010 and 2020 census data. 2020 and 2022 statistics both use 2020 census data.",
+               locations = cells_column_labels(contains("wards"))) %>%
+  tab_footnote("The wards used in 2022 were different than the wards used from 2012-2020.",
+               locations = cells_stub(rows = 6))
+```

@@ -72,7 +72,7 @@ Here is an example, using Milwaukee County data from the 2020 presidential elect
 library(tidyverse)
 library(sf)
 
-pres20 <- readxl::read_excel(here::here("election-data/President_2020_ReportingUnits_AfterRecount.xlsx")) %>%
+pres20 <- readxl::read_excel(here::here("election-data/official-wec/President_2020_ReportingUnits_AfterRecount.xlsx")) %>%
   janitor::clean_names() %>%
   mutate(total = rowSums(.[7:19]),
          county_fips = "55079") %>%

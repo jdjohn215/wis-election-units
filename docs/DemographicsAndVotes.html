@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.612">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Empirical guide to analyzing Wisconsin Election Data - Combining Demographic &amp; Election data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Empirical guide to analyzing Wisconsin Election Data</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ReportingUnitsVsWards.html">Reporting Units vs.&nbsp;Wards</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./RegisteredVoters.html">Registered Voters</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./WardDemographics.html">Ward Demographics</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./DemographicsAndVotes.html" aria-current="page">Combining Demographic &amp; Election data</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#retrieve-election-results" id="toc-retrieve-election-results" class="nav-link active" data-scroll-target="#retrieve-election-results">Retrieve election results</a></li>
+  <li><a href="#retrieve-ward-demographics" id="toc-retrieve-ward-demographics" class="nav-link" data-scroll-target="#retrieve-ward-demographics">Retrieve ward demographics</a></li>
+  <li><a href="#calculate-ward-majority-group" id="toc-calculate-ward-majority-group" class="nav-link" data-scroll-target="#calculate-ward-majority-group">calculate ward majority group</a></li>
+  <li><a href="#aggregate-election-results-by-ward-majority-group" id="toc-aggregate-election-results-by-ward-majority-group" class="nav-link" data-scroll-target="#aggregate-election-results-by-ward-majority-group">aggregate election results by ward majority group</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Combining Demographic &amp; Election data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Once we have demographic statistics <em>and</em> election statistics for the same geographic level, we can combine them to run various analyses.</p>
+<p>Here is a simple example, calculating the relative performance of the Democratic candidate in gubernatorial and presidential election in City of Milwaukee wards. I present the results separately for wards where the majority of adults are Black, non-Hispanic white, Hispanic or Latino, etc.</p>
+<section id="retrieve-election-results" class="level1">
+<h1>Retrieve election results</h1>
+<div class="cell">
+
+</div>
+<p>The elections file contains the official election results for each reporting unit in each election year. My analysis is limited to just the City of Milwaukee, where each reporting unit is one ward and wards stayed the same from 2012-2020. Their boundaries then changed to accomodate redistricting in 2022.</p>
+<p>See the file <code>election-data/official-wec/CombineFiles.R</code> for a demonstration of how to clean and combine official WEC ward returns.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,977 × 6
+    ward  year office    total   rep   dem
+   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1  2012 president  1489   297  1185
+ 2     2  2012 president   523    23   500
+ 3     3  2012 president  1138   229   909
+ 4     4  2012 president  1868   275  1576
+ 5     5  2012 president   917   125   789
+ 6     6  2012 president  1875   462  1395
+ 7     7  2012 president   679   194   480
+ 8     8  2012 president  1553   371  1172
+ 9     9  2012 president   857   126   725
+10    10  2012 president  1278   346   926
+# … with 1,967 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="retrieve-ward-demographics" class="level1">
+<h1>Retrieve ward demographics</h1>
+<p>Next, I retrieve the ward statistics for voting age population by race/ethnicity. See the chapter on “Ward Demographics” for details about calculating this. There are two Milwaukee ward demographic files, one containing statistics for the 2011 ward vintage, and the other containing the 2022 ward vintage.</p>
+<p>I combine the two into a single dataframe in long format. There is 1 row for each unique combination of ward, year, and demographic group. The following abbreviations are used:</p>
+<ul>
+<li>vap = voting age population</li>
+<li>aian = Alaska Native or Pacific Islander (non-Hispanic)</li>
+<li>asian = Asian (non-Hispanic)</li>
+<li>black = Black or African American (non-Hispanic)</li>
+<li>hisp = Hispanic or Latino (any race)</li>
+<li>white = white (non-Hispanic)</li>
+<li>other = other (non-Hispanic)</li>
+<li>two = 2 or more race (non-Hispanic)</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20,718 × 5
+    ward  year group     count     pct
+   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+ 1     1  2010 vap        2604 100    
+ 2     1  2010 vap_aian      6   0.230
+ 3     1  2010 vap_asian   120   4.61 
+ 4     1  2010 vap_black  1138  43.7  
+ 5     1  2010 vap_hisp    426  16.4  
+ 6     1  2010 vap_nhpi      0   0    
+ 7     1  2010 vap_other     4   0.154
+ 8     1  2010 vap_two      50   1.92 
+ 9     1  2010 vap_white   860  33.0  
+10     1  2012 vap        2583 100    
+# … with 20,708 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="calculate-ward-majority-group" class="level1">
+<h1>calculate ward majority group</h1>
+<p>I then determine which group, if any, makes up at outright majority of the ward’s voting age population in that year.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,302 × 3
+    ward  year vap_majority
+   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
+ 1     1  2010 no majority 
+ 2     2  2010 black       
+ 3     3  2010 black       
+ 4     4  2010 black       
+ 5     5  2010 black       
+ 6     6  2010 no majority 
+ 7     7  2010 no majority 
+ 8     8  2010 black       
+ 9     9  2010 black       
+10    10  2010 no majority 
+# … with 2,292 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="aggregate-election-results-by-ward-majority-group" class="level1 page-columns page-full">
+<h1>aggregate election results by ward majority group</h1>
+<p>Then, I merge the ward majority dataframe with the election results dataframe, and aggregate the votes by majority group.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 31 × 9
+    year office    vap_majority wards  ward  total   rep    dem dem_pct_2pty
+   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
+ 1  2012 president asian            1   171    230    10    218         95.6
+ 2  2012 president black          136 12679 123308  7429 115406         94.0
+ 3  2012 president hisp            44 11056  20122  2861  17117         85.7
+ 4  2012 president no majority     26  3598  21584  3968  17377         81.4
+ 5  2012 president white          118 25487 122143 42419  77692         64.7
+ 6  2014 governor  asian            1   171    110     3    106         97.2
+ 7  2014 governor  black          138 12541  90805  7211  82923         92.0
+ 8  2014 governor  hisp            45 11340  11902  2453   9277         79.1
+ 9  2014 governor  no majority     26  4055  14127  3370  10574         75.8
+10  2014 governor  white          115 24884  88390 33619  53455         61.4
+# … with 21 more rows</code></pre>
+</div>
+</div>
+<p>Finally, I use the {{gt}} package to create a nicely formatted table of results.</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-page">
+
+<div id="pgxzidriko" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pgxzidriko table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pgxzidriko thead, #pgxzidriko tbody, #pgxzidriko tfoot, #pgxzidriko tr, #pgxzidriko td, #pgxzidriko th {
+  border-style: none;
+}
+
+#pgxzidriko p {
+  margin: 0;
+  padding: 0;
+}
+
+#pgxzidriko .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pgxzidriko .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pgxzidriko .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pgxzidriko .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pgxzidriko .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pgxzidriko .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pgxzidriko .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pgxzidriko .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pgxzidriko .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pgxzidriko .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pgxzidriko .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pgxzidriko .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pgxzidriko .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pgxzidriko .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pgxzidriko .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgxzidriko .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pgxzidriko .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pgxzidriko .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pgxzidriko .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgxzidriko .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pgxzidriko .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgxzidriko .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pgxzidriko .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgxzidriko .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pgxzidriko .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgxzidriko .gt_left {
+  text-align: left;
+}
+
+#pgxzidriko .gt_center {
+  text-align: center;
+}
+
+#pgxzidriko .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pgxzidriko .gt_font_normal {
+  font-weight: normal;
+}
+
+#pgxzidriko .gt_font_bold {
+  font-weight: bold;
+}
+
+#pgxzidriko .gt_font_italic {
+  font-style: italic;
+}
+
+#pgxzidriko .gt_super {
+  font-size: 65%;
+}
+
+#pgxzidriko .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pgxzidriko .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pgxzidriko .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pgxzidriko .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pgxzidriko .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pgxzidriko .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pgxzidriko .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="11" class="gt_heading gt_title gt_font_normal" style="">Election results in City of Milwaukee wards</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">by the racial/ethnic majority group of adults in each ward</td>
+    </tr>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id=""></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="black">
+        <span class="gt_column_spanner">black</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="white">
+        <span class="gt_column_spanner">white</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="hisp">
+        <span class="gt_column_spanner">hisp</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="no majority">
+        <span class="gt_column_spanner">no majority</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="asian">
+        <span class="gt_column_spanner">asian</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dem_share<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">dem_share<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="wards<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>">wards<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dem_share<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">dem_share<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="wards<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>">wards<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dem_share<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">dem_share<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="wards<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>">wards<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dem_share<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">dem_share<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="wards<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>">wards<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dem_share<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">dem_share<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="wards<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>">wards<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">2012 president</th>
+<td headers="stub_1_1 black:dem_share" class="gt_row gt_right" style="background-color: #09488F; color: #FFFFFF;">94%</td>
+<td headers="stub_1_1 black:wards" class="gt_row gt_right">136</td>
+<td headers="stub_1_1 white:dem_share" class="gt_row gt_right" style="background-color: #E5EFF9; color: #000000;">65%</td>
+<td headers="stub_1_1 white:wards" class="gt_row gt_right">118</td>
+<td headers="stub_1_1 hisp:dem_share" class="gt_row gt_right" style="background-color: #3684BF; color: #FFFFFF;">86%</td>
+<td headers="stub_1_1 hisp:wards" class="gt_row gt_right">44</td>
+<td headers="stub_1_1 no majority:dem_share" class="gt_row gt_right" style="background-color: #59A1CF; color: #FFFFFF;">81%</td>
+<td headers="stub_1_1 no majority:wards" class="gt_row gt_right">26</td>
+<td headers="stub_1_1 asian:dem_share" class="gt_row gt_right" style="background-color: #093C7C; color: #FFFFFF;">96%</td>
+<td headers="stub_1_1 asian:wards" class="gt_row gt_right">1</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">2014 governor</th>
+<td headers="stub_1_2 black:dem_share" class="gt_row gt_right" style="background-color: #0E56A0; color: #FFFFFF;">92%</td>
+<td headers="stub_1_2 black:wards" class="gt_row gt_right">138</td>
+<td headers="stub_1_2 white:dem_share" class="gt_row gt_right" style="background-color: #F7FBFF; color: #000000;">61%</td>
+<td headers="stub_1_2 white:wards" class="gt_row gt_right">115</td>
+<td headers="stub_1_2 hisp:dem_share" class="gt_row gt_right" style="background-color: #6EAFD7; color: #000000;">79%</td>
+<td headers="stub_1_2 hisp:wards" class="gt_row gt_right">45</td>
+<td headers="stub_1_2 no majority:dem_share" class="gt_row gt_right" style="background-color: #93C4DF; color: #000000;">76%</td>
+<td headers="stub_1_2 no majority:wards" class="gt_row gt_right">26</td>
+<td headers="stub_1_2 asian:dem_share" class="gt_row gt_right" style="background-color: #08306B; color: #FFFFFF;">97%</td>
+<td headers="stub_1_2 asian:wards" class="gt_row gt_right">1</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">2016 president</th>
+<td headers="stub_1_3 black:dem_share" class="gt_row gt_right" style="background-color: #08509B; color: #FFFFFF;">93%</td>
+<td headers="stub_1_3 black:wards" class="gt_row gt_right">141</td>
+<td headers="stub_1_3 white:dem_share" class="gt_row gt_right" style="background-color: #D0E1F2; color: #000000;">69%</td>
+<td headers="stub_1_3 white:wards" class="gt_row gt_right">110</td>
+<td headers="stub_1_3 hisp:dem_share" class="gt_row gt_right" style="background-color: #4996C9; color: #FFFFFF;">83%</td>
+<td headers="stub_1_3 hisp:wards" class="gt_row gt_right">46</td>
+<td headers="stub_1_3 no majority:dem_share" class="gt_row gt_right" style="background-color: #6CAED6; color: #000000;">79%</td>
+<td headers="stub_1_3 no majority:wards" class="gt_row gt_right">27</td>
+<td headers="stub_1_3 asian:dem_share" class="gt_row gt_right" style="background-color: #093A79; color: #FFFFFF;">96%</td>
+<td headers="stub_1_3 asian:wards" class="gt_row gt_right">1</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">2018 governor</th>
+<td headers="stub_1_4 black:dem_share" class="gt_row gt_right" style="background-color: #1159A3; color: #FFFFFF;">92%</td>
+<td headers="stub_1_4 black:wards" class="gt_row gt_right">142</td>
+<td headers="stub_1_4 white:dem_share" class="gt_row gt_right" style="background-color: #CBDEF1; color: #000000;">70%</td>
+<td headers="stub_1_4 white:wards" class="gt_row gt_right">109</td>
+<td headers="stub_1_4 hisp:dem_share" class="gt_row gt_right" style="background-color: #4C98CA; color: #FFFFFF;">83%</td>
+<td headers="stub_1_4 hisp:wards" class="gt_row gt_right">46</td>
+<td headers="stub_1_4 no majority:dem_share" class="gt_row gt_right" style="background-color: #74B2D8; color: #000000;">79%</td>
+<td headers="stub_1_4 no majority:wards" class="gt_row gt_right">27</td>
+<td headers="stub_1_4 asian:dem_share" class="gt_row gt_right" style="background-color: #083471; color: #FFFFFF;">97%</td>
+<td headers="stub_1_4 asian:wards" class="gt_row gt_right">1</td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">2020 president</th>
+<td headers="stub_1_5 black:dem_share" class="gt_row gt_right" style="background-color: #145DA6; color: #FFFFFF;">91%</td>
+<td headers="stub_1_5 black:wards" class="gt_row gt_right">143</td>
+<td headers="stub_1_5 white:dem_share" class="gt_row gt_right" style="background-color: #BCD7EB; color: #000000;">71%</td>
+<td headers="stub_1_5 white:wards" class="gt_row gt_right">106</td>
+<td headers="stub_1_5 hisp:dem_share" class="gt_row gt_right" style="background-color: #7CB7DA; color: #000000;">78%</td>
+<td headers="stub_1_5 hisp:wards" class="gt_row gt_right">46</td>
+<td headers="stub_1_5 no majority:dem_share" class="gt_row gt_right" style="background-color: #8DC0DD; color: #000000;">76%</td>
+<td headers="stub_1_5 no majority:wards" class="gt_row gt_right">28</td>
+<td headers="stub_1_5 asian:dem_share" class="gt_row gt_right" style="background-color: #9ECAE1; color: #000000;">75%</td>
+<td headers="stub_1_5 asian:wards" class="gt_row gt_right">1</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">2022 governor<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>3</sup></span></th>
+<td headers="stub_1_6 black:dem_share" class="gt_row gt_right" style="background-color: #0C559F; color: #FFFFFF;">92%</td>
+<td headers="stub_1_6 black:wards" class="gt_row gt_right">144</td>
+<td headers="stub_1_6 white:dem_share" class="gt_row gt_right" style="background-color: #9AC7E0; color: #000000;">75%</td>
+<td headers="stub_1_6 white:wards" class="gt_row gt_right">119</td>
+<td headers="stub_1_6 hisp:dem_share" class="gt_row gt_right" style="background-color: #5CA3D0; color: #FFFFFF;">81%</td>
+<td headers="stub_1_6 hisp:wards" class="gt_row gt_right">43</td>
+<td headers="stub_1_6 no majority:dem_share" class="gt_row gt_right" style="background-color: #7CB7D9; color: #000000;">78%</td>
+<td headers="stub_1_6 no majority:wards" class="gt_row gt_right">37</td>
+<td headers="stub_1_6 asian:dem_share" class="gt_row gt_right" style="background-color: #1862AA; color: #FFFFFF;">90%</td>
+<td headers="stub_1_6 asian:wards" class="gt_row gt_right">1</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="11"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Democratic candidate's share of the two-party vote</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="11"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> 2012-2018 ward population statistics are linearly interpolated using 2010 and 2020 census data. 2020 and 2022 statistics both use 2020 census data.</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="11"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>3</sup></span> The wards used in 2022 were different than the wards used from 2012-2020.</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

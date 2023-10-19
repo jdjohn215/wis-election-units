@@ -1,0 +1,43 @@
+---
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+title: "Ward Demographics"
+reference-location: margin
+citation-location: margin
+---
+
+When ward boundaries remain stable between redistricting cycles, we can calculate ward demographics fairly easily.
+
+Step 1: calculate statistics for each ward in the starting year of the decade (e.g. 2010).
+Step 2: calculate statistics for each ward in the last year of the decade (e.g. 2020).
+Step 3: interpolate the statistics for the intervening election years. If a ward's population was 100 in 2010 and 200 in 2020, I estimate that its population was 120 in 2012, 140 in 2014, etc. This is a crude estimate, but it should be *directionally* accurate, compared with just using a decennial benchmark.
+
+The remainder of this chapter will describe how to match census data to Milwaukee County wards, which I believe have only changed during the official redistricting cycle during the past two decades.
+
+# Matching census blocks to wards
+
+## by voting tabulation district
+
+Decennial census data is published in very small polygons called census blocks. In a place with stable municipal borders (like Milwaukee County), each census block should fit entirely within a single ward.
+
+Additionally, the Census Bureau publishes **block assignment files** which explain the relationship between each block and several other higher orders of geography (e.g. tract, county subdivision, etc.). One of those higher geographies is the **voting tabulation district (VTD)**. A VTD is essentially a ward. So, in the case of Milwaukee, the decennial census data includes the VTD, or ward number, for the wards drawn in the preceding redistricting cycle. The 2010 census data includes the name for each ward drawn in 2002. The 2020 census data includes the ward name from 2011.
+
+In the case of Milwaukee County, I manually confirmed that the VTD names from the *end* of the decade matched the ward names assigned at the *beginning* of the decade.
+
+See `data/` subdirectory for more details.
+
+## by spatial join
+
+We also want to know which ward a census block was *subsequently* assigned to in the *next* redistricting process. To do this, I find a central point within each census block polygon. Then I intersect that coordinate point with the target ward polygons. After removing the spatial features, I'm left with a simple file containing a column with census block FIPS codes and another column with ward names.
+
+See the file `data/crosswalks/Build2010Crosswalk.R` for an example of intersecting blocks with wards.
+
+## Aggregating demographics
+
+Once we have a file matching each census block to a ward, we can aggregate statistics from the census block level into the voting wards.
+
+See the file `data/ward-demographics/AggregateWardDemographics.R` for a demonstration of this.
+
+These ward-level demographic statistics could be further aggregated into reporting units following the methodology laid out in the "Reporting Units vs. Wards" chapter.
