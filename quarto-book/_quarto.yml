@@ -14,7 +14,9 @@ website:
       - DemographicsAndVotes.qmd
 
 format:
-  html:
+ html:
+    code-fold: true
+    code-summary: "Show the code"
     theme: cosmo
     css: styles.css
     toc: true

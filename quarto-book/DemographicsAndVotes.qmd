@@ -1,5 +1,5 @@
 ---
-format: 
+format:
   html:
     code-fold: true
     code-summary: "Show the code"
@@ -11,7 +11,9 @@ citation-location: margin
 ```{r, include=FALSE}
 library(tidyverse)
 library(gt)
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+library(broom)
+library(gtsummary)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 orig.wec <- read_csv(here::here("election-data/OriginalWEC_Pres-GOV_2012-2022_ReportingUnits.csv"))
 ```
@@ -25,7 +27,9 @@ Here is a simple example, calculating the relative performance of the Democratic
 ```{r, eval=FALSE}
 library(tidyverse)
 library(gt)
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+library(broom)
+library(gtsummary)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 orig.wec <- read_csv(here::here("election-data/OriginalWEC_Pres-GOV_2012-2022_ReportingUnits.csv"))
 ```
@@ -148,4 +152,95 @@ mke.ward.majority.totals %>%
                locations = cells_column_labels(contains("wards"))) %>%
   tab_footnote("The wards used in 2022 were different than the wards used from 2012-2020.",
                locations = cells_stub(rows = 6))
+```
+
+# linear regression
+
+Extrapolating individual voter behavior from the table above risks committing the [ecological fallacy](https://en.wikipedia.org/wiki/Ecological_fallacy). To better measure how demographics correlate with election results, I construct a regression model.
+
+Overall, the model confirms the correlations revealed in the simple ward majority table. Keep reading for more details.
+
+First, I prepare the data, so that I am left with 1 row per ward in each election. I have variables for the total number of voters, the Democratic candidate's share of the 2-party vote, and the proportion of adults made up by each race. I create a combined `other` category containing all adults who aren't Black, white, Hispanic/Latino, or Asian. I also add dummy variables for each election year beginning in 2014.
+
+```{r}
+wards.votes.vap.pct <- mke.combined.ward.demographics %>%
+  select(-pct) %>%
+  pivot_wider(names_from = group, values_from = count) %>%
+  mutate(vap_other2 = vap_other + vap_two + vap_aian + vap_nhpi) %>%
+  inner_join(mke.ward.votes) %>%
+  select(ward, year, office, total, dem, rep, vap, vap_black, vap_white,
+         vap_hisp, vap_asian, vap_other2) %>%
+  # calculate percentages
+  mutate(total_2party = dem + rep,
+         pdem = (dem/total_2party)*100,
+         pvap_black = (vap_black/vap)*100,
+         pvap_white = (vap_white/vap)*100,
+         pvap_hisp = (vap_hisp/vap)*100,
+         pvap_asian = (vap_asian/vap)*100,
+         pvap_other2 = (vap_other2/vap)*100) %>%
+  select(ward, year, office, total_2party, vap, starts_with("p")) %>%
+  # add dummy variables for each election, 2014-2022
+  mutate(x2014 = if_else(year == 2014, 1, 0),
+         x2016 = if_else(year == 2016, 1, 0),
+         x2018 = if_else(year == 2018, 1, 0),
+         x2020 = if_else(year == 2020, 1, 0),
+         x2022 = if_else(year == 2022, 1, 0)) %>%
+  # remove ward-years with either no votes or no adults
+  filter(!is.na(pdem),
+         vap > 0)
+glimpse(wards.votes.vap.pct)
+```
+
+
+I then create a regression model using this formula. The independent variable is the Democratic candidate's share of the two-party vote. The regressors are the Black, Hispanic, Asian, and other adult population shares, each matched with an interaction term for the 2014, 2016, 2018, 2020, and 2022 elections. Each ward is weighted by the number of adults living in it.
+
+$lm(pdem ~ pvap_black*x2014 + pvap_black*x2016 + pvap_black*x2018 + pvap_black*x2020 + pvap_black*x2022 +
+pvap_hisp*x2014 + pvap_hisp*x2016 + pvap_hisp*x2018 + pvap_hisp*x2020 + pvap_hisp*x2022 +
+pvap_asian*x2014 + pvap_asian*x2016 + pvap_asian*x2018 + pvap_asian*x2020 + pvap_asian*x2022 +
+pvap_other2*x2014 + pvap_other2*x2016 + pvap_other2*x2018 + pvap_other2*x2020 + pvap_other2*x2022,
+weights = vap)
+
+```{r}
+pvap.lm <- lm(pdem ~ pvap_black*x2014 + pvap_black*x2016 + pvap_black*x2018 + pvap_black*x2020 + pvap_black*x2022 +
+     pvap_hisp*x2014 + pvap_hisp*x2016 + pvap_hisp*x2018 + pvap_hisp*x2020 + pvap_hisp*x2022 +
+     pvap_asian*x2014 + pvap_asian*x2016 + pvap_asian*x2018 + pvap_asian*x2020 + pvap_asian*x2022 +
+     pvap_other2*x2014 + pvap_other2*x2016 + pvap_other2*x2018 + pvap_other2*x2020 + pvap_other2*x2022,
+   data = wards.votes.vap.pct, weights = vap)
+```
+
+Here's how to interpret the results. The intercept is a ward in the **2012 presidential election** where 100% of adults are (non-Hispanic) white. The model predicts that this ward would've given Barack Obama 49% of the two-party vote. For every additional 1 percentage point increase in the Black share of the population, the model predicts the Democratic vote share to grow by 0.46 points; for every 1 point increase in the Latino share, a 0.37 point increase; and for every 1 point increase in the Asian share, a 0.30 point increase.
+
+In the **2014 gubernatorial race** the results are not significantly different from 2012 for changes in the white, Black, Latino, and Asian population.
+
+Changes are statistically significant in **the 2016 presidential race**. Relative to 2012, the predicted Democratic vote share in an entirely white ward grows by 8.2 percentage points. Every one point increase in the Black share of the population correlates with a slight (though statistically significant) 0.07 percentage point decrease in Democratic support, relative to 2012. For a one point in crease in the Latino population share, the Democratic share decreases by 0.13 points.
+
+The next elections show a continuation of this trend. Relative to each group's pattern in 2012, Democratic support increases among white adults and decreases among Black and Latino adults.
+
+Here are the statistics for the **2022 presidential race**, relative to 2012. In a hypothetically entirely white ward, the Democratic share grows by 21 percentage points. The increase in Democratic support for every 1-point increase in the Black population slips by 0.18 percentage points. It drops by 0.28 points for each 1-point increase in the Latino population. Margins of error are larger among the smaller Asian population, but the model even finds a statistically significant drop in Democratic support here.
+
+```{r}
+tbl_regression(pvap.lm, intercept = T) %>%
+ add_glance_source_note(
+    include = everything(),
+    text_interpret = c("md", "html"),
+    sep1 = " = ",
+    sep2 = "; "
+  )
+```
+
+These plots visualize the changing coefficients in Democratic support for each 1-point increase in the Asian, Black, and Latino populations, relative to 2012.
+
+```{r}
+broom::tidy(pvap.lm, conf.int = T) %>% filter(str_detect(term, "x2"),
+                        str_detect(term, ":")) %>%
+  mutate(race = str_extract(term, "pvap.*:|pvap.*$"),
+         year = str_extract(term, "x.*:|x.*$"),
+         race = str_remove(race, ":"),
+         year = str_remove(year, ":")) %>%
+  filter(race != "pvap_other2") %>%
+  ggplot() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_pointrange(aes(x = year, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  facet_wrap(facets = ~race) +
+  theme_bw()
 ```
